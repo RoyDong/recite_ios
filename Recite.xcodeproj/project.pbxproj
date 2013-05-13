@@ -23,6 +23,8 @@
 		B07E0DA61740CEB6007F8E48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E0D811740CEB5007F8E48 /* Foundation.framework */; };
 		B07E0DAE1740CEB6007F8E48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B07E0DAC1740CEB6007F8E48 /* InfoPlist.strings */; };
 		B07E0DB11740CEB6007F8E48 /* ReciteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DB01740CEB6007F8E48 /* ReciteTests.m */; };
+		B07E0DBE1740CFEE007F8E48 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DBD1740CFEE007F8E48 /* HttpClient.m */; };
+		B07E0DBF1740CFEE007F8E48 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DBD1740CFEE007F8E48 /* HttpClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		B07E0DAD1740CEB6007F8E48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B07E0DAF1740CEB6007F8E48 /* ReciteTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReciteTests.h; sourceTree = "<group>"; };
 		B07E0DB01740CEB6007F8E48 /* ReciteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReciteTests.m; sourceTree = "<group>"; };
+		B07E0DBC1740CFEE007F8E48 /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
+		B07E0DBD1740CFEE007F8E48 /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +121,10 @@
 		B07E0D851740CEB5007F8E48 /* Recite */ = {
 			isa = PBXGroup;
 			children = (
+				B07E0DBB1740CFDF007F8E48 /* Lib */,
 				B07E0D8E1740CEB5007F8E48 /* AppDelegate.h */,
 				B07E0D8F1740CEB5007F8E48 /* AppDelegate.m */,
-				B07E0D971740CEB5007F8E48 /* ViewController.h */,
-				B07E0D981740CEB5007F8E48 /* ViewController.m */,
-				B07E0D9A1740CEB5007F8E48 /* ViewController.xib */,
+				B07E0DBA1740CFBD007F8E48 /* Controller */,
 				B07E0D861740CEB5007F8E48 /* Supporting Files */,
 			);
 			path = Recite;
@@ -158,6 +161,25 @@
 				B07E0DAC1740CEB6007F8E48 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B07E0DBA1740CFBD007F8E48 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B07E0D971740CEB5007F8E48 /* ViewController.h */,
+				B07E0D981740CEB5007F8E48 /* ViewController.m */,
+				B07E0D9A1740CEB5007F8E48 /* ViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B07E0DBB1740CFDF007F8E48 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				B07E0DBC1740CFEE007F8E48 /* HttpClient.h */,
+				B07E0DBD1740CFEE007F8E48 /* HttpClient.m */,
+			);
+			name = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +295,7 @@
 				B07E0D8C1740CEB5007F8E48 /* main.m in Sources */,
 				B07E0D901740CEB5007F8E48 /* AppDelegate.m in Sources */,
 				B07E0D991740CEB5007F8E48 /* ViewController.m in Sources */,
+				B07E0DBE1740CFEE007F8E48 /* HttpClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07E0DB11740CEB6007F8E48 /* ReciteTests.m in Sources */,
+				B07E0DBF1740CFEE007F8E48 /* HttpClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
