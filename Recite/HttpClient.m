@@ -59,7 +59,7 @@ static HttpClient *_singleInstance;
 
     if(query)
     {
-        NSString *httpQuery = [self buildHttpDataWithDict:query];
+        NSString *httpQuery = [self buildHttpFormData:query];
         url = [url stringByAppendingFormat:@"?%@", httpQuery];
     }
 
@@ -86,7 +86,7 @@ static HttpClient *_singleInstance;
 
     if(post)
     {
-        NSData *postData = [[self buildHttpDataWithDict:post]
+        NSData *postData = [[self buildHttpFormData:post]
                             dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
         [_request setHTTPBody:postData];        
     }
@@ -113,7 +113,7 @@ static HttpClient *_singleInstance;
 }
 
 
-- (NSString *)buildHttpDataWithDict:(NSDictionary *)parameters
+- (NSString *)buildHttpFormData:(NSDictionary *)parameters
 {
     NSMutableArray *parts = [[NSMutableArray alloc] init];
     NSString *part;

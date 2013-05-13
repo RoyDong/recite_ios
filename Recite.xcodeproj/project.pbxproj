@@ -25,6 +25,14 @@
 		B07E0DB11740CEB6007F8E48 /* ReciteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DB01740CEB6007F8E48 /* ReciteTests.m */; };
 		B07E0DBE1740CFEE007F8E48 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DBD1740CFEE007F8E48 /* HttpClient.m */; };
 		B07E0DBF1740CFEE007F8E48 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DBD1740CFEE007F8E48 /* HttpClient.m */; };
+		B07E0DC31740D3BE007F8E48 /* SignupController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DC11740D3BE007F8E48 /* SignupController.m */; };
+		B07E0DC41740D3BE007F8E48 /* SignupController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DC11740D3BE007F8E48 /* SignupController.m */; };
+		B07E0DC51740D3BE007F8E48 /* SignupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07E0DC21740D3BE007F8E48 /* SignupController.xib */; };
+		B07E0DC61740D3BE007F8E48 /* SignupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07E0DC21740D3BE007F8E48 /* SignupController.xib */; };
+		B07E0DD11740EFC8007F8E48 /* SigninController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DCF1740EFC8007F8E48 /* SigninController.m */; };
+		B07E0DD21740EFC8007F8E48 /* SigninController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DCF1740EFC8007F8E48 /* SigninController.m */; };
+		B07E0DD31740EFC8007F8E48 /* SigninController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07E0DD01740EFC8007F8E48 /* SigninController.xib */; };
+		B07E0DD41740EFC8007F8E48 /* SigninController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07E0DD01740EFC8007F8E48 /* SigninController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +70,12 @@
 		B07E0DB01740CEB6007F8E48 /* ReciteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReciteTests.m; sourceTree = "<group>"; };
 		B07E0DBC1740CFEE007F8E48 /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
 		B07E0DBD1740CFEE007F8E48 /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
+		B07E0DC01740D3BE007F8E48 /* SignupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupController.h; sourceTree = "<group>"; };
+		B07E0DC11740D3BE007F8E48 /* SignupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupController.m; sourceTree = "<group>"; };
+		B07E0DC21740D3BE007F8E48 /* SignupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupController.xib; sourceTree = "<group>"; };
+		B07E0DCE1740EFC8007F8E48 /* SigninController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninController.h; sourceTree = "<group>"; };
+		B07E0DCF1740EFC8007F8E48 /* SigninController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninController.m; sourceTree = "<group>"; };
+		B07E0DD01740EFC8007F8E48 /* SigninController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SigninController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +183,12 @@
 				B07E0D971740CEB5007F8E48 /* ViewController.h */,
 				B07E0D981740CEB5007F8E48 /* ViewController.m */,
 				B07E0D9A1740CEB5007F8E48 /* ViewController.xib */,
+				B07E0DC01740D3BE007F8E48 /* SignupController.h */,
+				B07E0DC11740D3BE007F8E48 /* SignupController.m */,
+				B07E0DC21740D3BE007F8E48 /* SignupController.xib */,
+				B07E0DCE1740EFC8007F8E48 /* SigninController.h */,
+				B07E0DCF1740EFC8007F8E48 /* SigninController.m */,
+				B07E0DD01740EFC8007F8E48 /* SigninController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -258,6 +278,8 @@
 				B07E0D941740CEB5007F8E48 /* Default@2x.png in Resources */,
 				B07E0D961740CEB5007F8E48 /* Default-568h@2x.png in Resources */,
 				B07E0D9C1740CEB5007F8E48 /* ViewController.xib in Resources */,
+				B07E0DC51740D3BE007F8E48 /* SignupController.xib in Resources */,
+				B07E0DD31740EFC8007F8E48 /* SigninController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +288,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07E0DAE1740CEB6007F8E48 /* InfoPlist.strings in Resources */,
+				B07E0DC61740D3BE007F8E48 /* SignupController.xib in Resources */,
+				B07E0DD41740EFC8007F8E48 /* SigninController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +320,8 @@
 				B07E0D901740CEB5007F8E48 /* AppDelegate.m in Sources */,
 				B07E0D991740CEB5007F8E48 /* ViewController.m in Sources */,
 				B07E0DBE1740CFEE007F8E48 /* HttpClient.m in Sources */,
+				B07E0DC31740D3BE007F8E48 /* SignupController.m in Sources */,
+				B07E0DD11740EFC8007F8E48 /* SigninController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +331,8 @@
 			files = (
 				B07E0DB11740CEB6007F8E48 /* ReciteTests.m in Sources */,
 				B07E0DBF1740CFEE007F8E48 /* HttpClient.m in Sources */,
+				B07E0DC41740D3BE007F8E48 /* SignupController.m in Sources */,
+				B07E0DD21740EFC8007F8E48 /* SigninController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

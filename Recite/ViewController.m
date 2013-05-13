@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "HttpClient.h"
+#import "SignupController.h"
+#import "SigninController.h"
 
 @interface ViewController ()
+
+- (IBAction)sign:(UIButton *)sender;
 
 @end
 
@@ -17,7 +22,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[HttpClient singleInstance] call:@"security/status"];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (IBAction)sign:(UIButton *)sender
+{
+    NSString *title = sender.titleLabel.text;
+    
+    if ([title isEqualToString:@"Sign up"]) {
+        SignupController *signup = [[SignupController alloc] init];
+        signup.back = self;
+        [self presentViewController:signup animated:YES completion:nil];
+    }
+    else
+    {
+        SigninController *signin = [[SigninController alloc] init];
+        signin.back = self;
+        [self presentViewController:signin animated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning
