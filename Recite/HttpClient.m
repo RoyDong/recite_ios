@@ -10,10 +10,6 @@
 #import <Foundation/Foundation.h>
 
 @interface HttpClient()
-{
-    NSMutableURLRequest *request;
-}
-
 
 @end
 
@@ -108,10 +104,18 @@ static HttpClient *singleInstance;
     NSLog(@"%@", content);
 
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+    
+    if([error code])
+    {
+        _message = @"Server error";
+        _code = 1;
 
+        return nil;
+    }
+    
     _message = [result objectForKey:@"message"];
     _code = [[result objectForKey:@"code"] intValue];
-    
+
     return [result objectForKey:@"data"];
 }
 

@@ -10,16 +10,12 @@
 
 @interface HttpClient : NSObject
 {
-    NSString *host;
-    
-    NSString *message;
-    
-    int code;
+    NSMutableURLRequest *request;
 }
 
 @property (nonatomic, readonly, strong) NSString *host;
 
-@property (nonatomic, readonly, weak) NSString *message;
+@property (nonatomic, readonly, strong) NSString *message;
 
 @property (nonatomic, readonly) int code;
 

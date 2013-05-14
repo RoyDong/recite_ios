@@ -13,7 +13,9 @@
 
 @interface ViewController ()
 
-- (IBAction)sign:(UIButton *)sender;
+- (IBAction)signup:(UIButton *)sender;
+
+- (IBAction)signin:(UIButton *)sender;
 
 @end
 
@@ -23,25 +25,35 @@
 {
     [super viewDidLoad];
     
-    [[HttpClient singleInstance] call:@"security/status"];
+
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (IBAction)sign:(UIButton *)sender
+- (void)viewDidAppear:(BOOL)animated
 {
-    NSString *title = sender.titleLabel.text;
+    [super viewDidAppear:animated];
     
-    if ([title isEqualToString:@"Sign up"]) {
-        SignupController *signup = [[SignupController alloc] init];
-        signup.back = self;
-        [self presentViewController:signup animated:YES completion:nil];
-    }
-    else
+    NSString *role = [[[HttpClient singleInstance] call:@"user/status"] description];
+    
+    if([role isEqualToString:@"user"])
     {
-        SigninController *signin = [[SigninController alloc] init];
-        signin.back = self;
-        [self presentViewController:signin animated:YES completion:nil];
+        
     }
+}
+
+- (IBAction)signup:(UIButton *)sender
+{
+    SignupController *signup = [[SignupController alloc] init];
+    signup.back = self;
+    [self presentViewController:signup animated:YES completion:nil];
+
+}
+
+- (IBAction)signin:(UIButton *)sender
+{
+    SigninController *signin = [[SigninController alloc] init];
+    signin.back = self;
+    [self presentViewController:signin animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
