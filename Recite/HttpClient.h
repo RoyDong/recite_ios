@@ -11,6 +11,8 @@
 @interface HttpClient : NSObject
 {
     NSMutableURLRequest *request;
+    
+    NSString *currentApi;
 }
 
 @property (nonatomic, readonly, strong) NSString *host;
@@ -26,5 +28,10 @@
 - (NSDictionary *)call:(NSString *)api post:(NSDictionary *)post;
 
 - (NSDictionary *)call:(NSString *)api post:(NSDictionary *)post query:(NSDictionary *)query;
+
+/**
+ 
+ */
+- (NSString *)cookieForKey:(NSString *)key;
 
 @end

@@ -21,19 +21,13 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-
-	// Do any additional setup after loading the view, typically from a nib.
-}
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    NSString *role = [[[HttpClient singleInstance] call:@"user/status"] description];
+    HttpClient *client = [HttpClient singleInstance];
+    NSString *role = [[client call:@"user/status"] description];
     
     if([role isEqualToString:@"user"])
     {
@@ -45,7 +39,7 @@
 {
     SignupController *signup = [[SignupController alloc] init];
     signup.back = self;
-    [self presentViewController:signup animated:YES completion:nil];
+    [self presentViewController:signup animated:NO completion:nil];
 
 }
 

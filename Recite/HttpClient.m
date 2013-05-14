@@ -76,6 +76,7 @@ static HttpClient *singleInstance;
 
 - (NSDictionary *)call:(NSString *)api post:(NSDictionary *)post query:(NSDictionary *)query
 {
+    currentApi = api;
     NSError *error;
     NSURL *url = [self createUrlWithApi:api query:query];
 
@@ -84,28 +85,17 @@ static HttpClient *singleInstance;
 
     if(post)
     {
-        NSData *postData = [[self buildHttpFormData:post]
-                            dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+        NSData *postData = [[self buildHttpFormData:post] dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
         [request setHTTPBody:postData];        
     }
     
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    
-
-    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (NSHTTPCookie *cookie in [cookieJar cookies])
-    {
-        //NSLog(@"%@", cookie);
-    }
-    
-    NSString *content =[NSString stringWithCString:[response bytes]
-                                          encoding:NSUTF8StringEncoding];
-
-    NSLog(@"%@", content);
-
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
     
-    if([error code])
+    NSString *content =[NSString stringWithCString:[response bytes] encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", content);
+
+    if(error.code)
     {
         _message = @"Server error";
         _code = 1;
@@ -123,18 +113,31 @@ static HttpClient *singleInstance;
 - (NSString *)buildHttpFormData:(NSDictionary *)parameters
 {
     NSMutableArray *parts = [[NSMutableArray alloc] init];
-    NSString *part;
     NSString *key;
     NSString *value;
     
     for(key in parameters)
     {
         value = [parameters objectForKey:key];
-        part = [NSString stringWithFormat:@"%@=%@", key, value];
-        [parts addObject:part];
+        [parts addObject:[NSString stringWithFormat:@"%@=%@", key, value]];
     }
          
     return [parts componentsJoinedByString:@"&"];
+}
+
+- (NSString *)cookieForKey:(NSString *)key
+{
+    NSHTTPCookieStorage *cookieStore = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+
+    for(NSHTTPCookie *cookie in [cookieStore cookies])
+    {
+        if ([cookie.name isEqualToString:key])
+        {
+            return cookie.value;
+        }
+    }
+    
+    return nil;
 }
 
 @end
