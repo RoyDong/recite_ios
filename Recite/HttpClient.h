@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface HttpClient : NSObject
+{
+    NSString *host;
+    
+    NSString *message;
+    
+    int code;
+}
 
 @property (nonatomic, readonly, strong) NSString *host;
 

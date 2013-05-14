@@ -10,40 +10,42 @@
 #import <Foundation/Foundation.h>
 
 @interface HttpClient()
+{
+    NSMutableURLRequest *request;
+}
 
-@property(nonatomic, readonly, strong) NSMutableURLRequest *request;
 
 @end
 
-static HttpClient *_singleInstance;
+static HttpClient *singleInstance;
 
 @implementation HttpClient
 
 + (HttpClient *)singleInstance
 {
-    if(!_singleInstance)
+    if(!singleInstance)
     {
-        _singleInstance = [[HttpClient alloc] init];
+        singleInstance = [[HttpClient alloc] init];
     }
     
-    return _singleInstance;
+    return singleInstance;
 }
 
 - (HttpClient *)init
 {
     self = [super init];
     
-    if(self){
+    if(self)
+    {
         _host = @"http://roy.recite.dev.xq.lab/";
-        _request = [[NSMutableURLRequest alloc] init];
-        [_request setValue:@"json" forHTTPHeaderField:@"Response-Format"];
+        request = [[NSMutableURLRequest alloc] init];
+        [request setValue:@"json" forHTTPHeaderField:@"Response-Format"];
     }
     
     return self;
 }
 
 @synthesize host = _host;
-@synthesize request = _request;
 @synthesize message = _message;
 @synthesize code = _code;
 
@@ -81,21 +83,22 @@ static HttpClient *_singleInstance;
     NSError *error;
     NSURL *url = [self createUrlWithApi:api query:query];
 
-    [_request setURL:url];
-    [_request setHTTPMethod:@"POST"];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
 
     if(post)
     {
         NSData *postData = [[self buildHttpFormData:post]
                             dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-        [_request setHTTPBody:postData];        
+        [request setHTTPBody:postData];        
     }
     
-    NSData *response = [NSURLConnection sendSynchronousRequest:_request returningResponse:nil error:nil];
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     
 
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (NSHTTPCookie *cookie in [cookieJar cookies]) {
+    for (NSHTTPCookie *cookie in [cookieJar cookies])
+    {
         //NSLog(@"%@", cookie);
     }
     
