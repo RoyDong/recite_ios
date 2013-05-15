@@ -11,6 +11,6 @@
 
 @interface SigninController : UIViewController
 
-@property (nonatomic, strong) ViewController *back;
+@property (nonatomic, strong) ViewController *root;
 
 @end

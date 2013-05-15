@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface ViewController : UIViewController
+
+
+- (void)render:(int)view animated:(BOOL)animated;
 
 @end

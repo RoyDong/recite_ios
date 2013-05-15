@@ -20,8 +20,6 @@
 
 - (IBAction)submit:(UIButton *)sender;
 
-- (IBAction)back:(id)sender;
-
 @end
 
 @implementation SigninController
@@ -60,18 +58,13 @@
     
     if(client.code == 0)
     {
-        [self.back dismissViewControllerAnimated:YES completion:nil];
+        [self.root render:0 animated:YES];
     }
     else
     {
         [alert setMessage:client.message];
         [alert show];
     }
-}
-
-- (IBAction)back:(id)sender
-{
-    [self.back dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

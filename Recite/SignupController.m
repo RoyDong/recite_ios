@@ -8,6 +8,7 @@
 
 #import "SignupController.h"
 #import "HttpClient.h"
+#import "ViewConstant.h"
 
 @interface SignupController ()
 {
@@ -63,7 +64,7 @@
 
     if(client.code == 0)
     {
-        [self.back dismissViewControllerAnimated:YES completion:nil];
+        [self.root render:0 animated:NO];
     }
     else
     {
@@ -74,7 +75,7 @@
 
 - (IBAction)back:(id)sender
 {
-    [self.back dismissViewControllerAnimated:YES completion:nil];
+    [self.root render:0 animated:NO];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

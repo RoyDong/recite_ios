@@ -35,6 +35,9 @@
 		B07E0DD41740EFC8007F8E48 /* SigninController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07E0DD01740EFC8007F8E48 /* SigninController.xib */; };
 		B09BC40D174225CA00760B87 /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = B09BC40B174225CA00760B87 /* SettingController.m */; };
 		B09BC40E174225CA00760B87 /* SettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B09BC40C174225CA00760B87 /* SettingController.xib */; };
+		B0D1156F174332BD009BCC58 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D1156E174332BD009BCC58 /* BaseViewController.m */; };
+		B0D1157617433A5F009BCC58 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D1157517433A5F009BCC58 /* UserModel.m */; };
+		B0D1157917433AA8009BCC58 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D1157817433AA8009BCC58 /* BaseModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,13 @@
 		B09BC40A174225CA00760B87 /* SettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingController.h; sourceTree = "<group>"; };
 		B09BC40B174225CA00760B87 /* SettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingController.m; sourceTree = "<group>"; };
 		B09BC40C174225CA00760B87 /* SettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingController.xib; sourceTree = "<group>"; };
+		B0B837DB1743874B0007F418 /* ViewConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewConstant.h; sourceTree = "<group>"; };
+		B0D1156D174332BD009BCC58 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		B0D1156E174332BD009BCC58 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		B0D1157417433A5F009BCC58 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		B0D1157517433A5F009BCC58 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		B0D1157717433AA8009BCC58 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		B0D1157817433AA8009BCC58 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +150,7 @@
 		B07E0D851740CEB5007F8E48 /* Recite */ = {
 			isa = PBXGroup;
 			children = (
+				B0D11570174338DB009BCC58 /* Model */,
 				B07E0DBB1740CFDF007F8E48 /* Lib */,
 				B07E0D8E1740CEB5007F8E48 /* AppDelegate.h */,
 				B07E0D8F1740CEB5007F8E48 /* AppDelegate.m */,
@@ -189,6 +200,7 @@
 				B07E0D981740CEB5007F8E48 /* ViewController.m */,
 				B07E0D9A1740CEB5007F8E48 /* ViewController.xib */,
 				B09BC4091742200E00760B87 /* User */,
+				B0B837DB1743874B0007F418 /* ViewConstant.h */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -198,6 +210,10 @@
 			children = (
 				B07E0DBC1740CFEE007F8E48 /* HttpClient.h */,
 				B07E0DBD1740CFEE007F8E48 /* HttpClient.m */,
+				B0D1156D174332BD009BCC58 /* BaseViewController.h */,
+				B0D1156E174332BD009BCC58 /* BaseViewController.m */,
+				B0D1157717433AA8009BCC58 /* BaseModel.h */,
+				B0D1157817433AA8009BCC58 /* BaseModel.m */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -216,6 +232,15 @@
 				B09BC40C174225CA00760B87 /* SettingController.xib */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		B0D11570174338DB009BCC58 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B0D1157417433A5F009BCC58 /* UserModel.h */,
+				B0D1157517433A5F009BCC58 /* UserModel.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +365,9 @@
 				B07E0DC31740D3BE007F8E48 /* SignupController.m in Sources */,
 				B07E0DD11740EFC8007F8E48 /* SigninController.m in Sources */,
 				B09BC40D174225CA00760B87 /* SettingController.m in Sources */,
+				B0D1156F174332BD009BCC58 /* BaseViewController.m in Sources */,
+				B0D1157617433A5F009BCC58 /* UserModel.m in Sources */,
+				B0D1157917433AA8009BCC58 /* BaseModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

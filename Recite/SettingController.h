@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
 @interface SettingController : UIViewController
+
+@property (nonatomic, strong) ViewController *root;
 
 @end

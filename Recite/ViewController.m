@@ -7,11 +7,17 @@
 //
 
 #import "ViewController.h"
-#import "HttpClient.h"
-#import "SignupController.h"
 #import "SigninController.h"
+#import "SignupController.h"
+#import "SettingController.h"
+#import "ViewConstant.h"
+#import "UserModel.h"
+
 
 @interface ViewController ()
+{
+    UserModel *user;
+}
 
 - (IBAction)signup:(UIButton *)sender;
 
@@ -21,33 +27,62 @@
 
 @implementation ViewController
 
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    HttpClient *client = [HttpClient singleInstance];
-    NSString *role = [[client call:@"user/status"] description];
+    user = [UserModel currentUser];
     
-    if([role isEqualToString:@"user"])
+    if (user)
     {
         
+    }
+    else
+    {
+        SigninController *signin = [[SigninController alloc] init];
+        signin.root = self;
+        [self presentViewController:signin animated:YES completion:nil];
+    }
+}
+
+- (void)render:(int)view animated:(BOOL)animated
+{
+    switch (view)
+    {
+        case VIEW_SETTING:
+        {
+            SettingController *setting = [[SettingController alloc] init];
+            setting.root = self;
+            [self presentViewController:setting animated:animated completion:nil];
+        }
+        break;
+            
+        case VIEW_SIGNUP:
+        {
+            SignupController *signup = [[SignupController alloc] init];
+            signup.root = self;
+            [self presentViewController:signup animated:animated completion:nil];
+        }
+        break;
+        
+        case VIEW_SIGNIN:
+        {
+            SigninController *signin = [[SigninController alloc] init];
+            signin.root = self;
+            [self presentViewController:signin animated:animated completion:nil];
+        }
+        break;
     }
 }
 
 - (IBAction)signup:(UIButton *)sender
 {
-    SignupController *signup = [[SignupController alloc] init];
-    signup.back = self;
-    [self presentViewController:signup animated:NO completion:nil];
-
+    [self render:VIEW_SIGNUP animated:NO];
 }
 
 - (IBAction)signin:(UIButton *)sender
 {
-    SigninController *signin = [[SigninController alloc] init];
-    signin.back = self;
-    [self presentViewController:signin animated:YES completion:nil];
+    [self render:VIEW_SIGNIN animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
