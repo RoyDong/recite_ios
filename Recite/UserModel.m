@@ -31,7 +31,7 @@ static UserModel *current;
         NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d", uid], @"id", nil];
         NSDictionary *dict = [[HttpClient singleInstance] call:@"user/show" post:nil query:query];
         user = [[UserModel alloc] init];
-        [user initContentWithDict:dict];
+        [user initContent:dict];
         
         [instances addObject:user];
     }
@@ -71,15 +71,16 @@ static UserModel *current;
         if (!current)
         {
             current = [[UserModel alloc] init];
-            [current initContentWithDict:dict];
             [instances addObject:current];
         }
+        
+        [current initContent:dict];
     }
 
     return current;
 }
 
-- (void)initContentWithDict:(NSDictionary *)dict
+- (void)initContent:(NSDictionary *)dict
 {
     self.uid = [[dict objectForKey:@"id"] intValue];
     self.email = [dict objectForKey:@"email"];

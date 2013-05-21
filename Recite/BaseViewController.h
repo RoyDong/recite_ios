@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface BaseViewController : UIViewController
+{
+    NSArray *controllers;
+}
 
+@property (nonatomic, readonly) NSUInteger number;
 
 - (void)alert:(NSString *)title message:(NSString *)message;
 

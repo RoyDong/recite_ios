@@ -7,88 +7,63 @@
 //
 
 #import "ViewController.h"
-#import "SigninController.h"
 #import "SignupController.h"
 #import "SettingController.h"
-#import "ViewConstant.h"
-#import "UserModel.h"
-
 
 @interface ViewController ()
 {
-    UserModel *user;
+    NSInteger currentViewTag;
 }
 
-- (IBAction)signup:(UIButton *)sender;
-
-- (IBAction)signin:(UIButton *)sender;
+- (IBAction)switchTab:(UIButton *)sender;
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewDidLoad
 {
-    [super viewDidAppear:animated];
+    [super viewDidLoad];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-    user = [UserModel currentUser];
+    CGRect rect = self.view.bounds;
+    CGRect subRect = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height - 100);
     
-    if (user)
-    {
-        
-    }
-    else
-    {
-        SigninController *signin = [[SigninController alloc] init];
-        signin.root = self;
-        [self presentViewController:signin animated:YES completion:nil];
-    }
+    SignupController *signup = [[SignupController alloc] init];
+    SettingController *setting = [[SettingController alloc] init];
+
+    signup.view.frame = subRect;
+    setting.view.frame = subRect;
+
+    [self addChildViewController:signup];
+    [self addChildViewController:setting];
+
+    [self.view addSubview:signup.view];
 }
 
-- (void)render:(int)view animated:(BOOL)animated
+- (IBAction)switchTab:(UIButton *)sender
 {
-    switch (view)
-    {
-        case VIEW_SETTING:
-        {
-            SettingController *setting = [[SettingController alloc] init];
-            setting.root = self;
-            [self presentViewController:setting animated:animated completion:nil];
-        }
-        break;
-            
-        case VIEW_SIGNUP:
-        {
-            SignupController *signup = [[SignupController alloc] init];
-            signup.root = self;
-            [self presentViewController:signup animated:animated completion:nil];
-        }
-        break;
-        
-        case VIEW_SIGNIN:
-        {
-            SigninController *signin = [[SigninController alloc] init];
-            signin.root = self;
-            [self presentViewController:signin animated:animated completion:nil];
-        }
-        break;
-    }
-}
+    if (sender.tag == currentViewTag) return;
 
-- (IBAction)signup:(UIButton *)sender
-{
-    [self render:VIEW_SIGNUP animated:NO];
-}
-
-- (IBAction)signin:(UIButton *)sender
-{
-    [self render:VIEW_SIGNIN animated:YES];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UIViewController *currentView = [self.childViewControllers objectAtIndex:currentViewTag];
+    UIViewController *newView = [self.childViewControllers objectAtIndex:sender.tag];
+    
+    [self transitionFromViewController:currentView
+                    toViewController:newView
+                    duration:2
+                    options:UIViewAnimationOptionAutoreverse
+                    animations:^{}
+                    completion:^(BOOL finished){
+                        if (finished)
+                        {
+                            currentViewTag = sender.tag;
+                        }
+                    }];
 }
 
 @end

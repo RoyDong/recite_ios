@@ -58,7 +58,7 @@
     
     if(client.code == 0)
     {
-        [self.root render:0 animated:YES];
+
     }
     else
     {
@@ -73,10 +73,5 @@
     [self.passwd resignFirstResponder];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

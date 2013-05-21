@@ -64,7 +64,7 @@
 
     if(client.code == 0)
     {
-        [self.root render:0 animated:NO];
+        
     }
     else
     {
@@ -73,21 +73,6 @@
     }
 }
 
-- (IBAction)back:(id)sender
-{
-    [self.root render:0 animated:NO];
-}
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.email resignFirstResponder];
-    [self.passwd resignFirstResponder];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end
