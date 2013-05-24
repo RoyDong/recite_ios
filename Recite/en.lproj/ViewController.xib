@@ -200,7 +200,6 @@
 						<int key="objectID">6</int>
 						<reference key="object" ref="774585933"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="501438195"/>
 							<object class="IBNSLayoutConstraint" id="59229718">
 								<reference key="firstItem" ref="323835485"/>
 								<int key="firstAttribute">4</int>
@@ -299,6 +298,7 @@
 							</object>
 							<reference ref="574960321"/>
 							<reference ref="323835485"/>
+							<reference ref="501438195"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
