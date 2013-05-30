@@ -11,11 +11,7 @@
 #import "SettingController.h"
 
 @interface ViewController ()
-{
-    NSInteger currentViewTag;
-}
 
-- (IBAction)switchTab:(UIButton *)sender;
 
 @end
 
@@ -24,46 +20,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    float screenWidth = self.view.frame.size.width;
+    float screenHeight = self.view.frame.size.height;
+    float navHeight = 30.0;
+    float navWidth = 250.0;
+    CGRect navRect = CGRectMake((screenWidth - navWidth ) / 2, screenHeight - navHeight, navWidth, navHeight);
     
-    CGRect rect = self.view.bounds;
-    CGRect subRect = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height - 100);
-    
-    SignupController *signup = [[SignupController alloc] init];
-    SettingController *setting = [[SettingController alloc] init];
-
-    signup.view.frame = subRect;
-    setting.view.frame = subRect;
-
-    [self addChildViewController:signup];
-    [self addChildViewController:setting];
-
-    [self.view addSubview:signup.view];
+    [self initTabs:[NSArray arrayWithObjects:@"注册", @"登录", nil]
+           classes:[NSArray arrayWithObjects:[SignupController class],[SettingController class], nil]
+            images:[NSArray arrayWithObjects:@"1", @"2", nil]
+              rect:navRect];
 }
 
-- (IBAction)switchTab:(UIButton *)sender
-{
-    if (sender.tag == currentViewTag) return;
-
-    UIViewController *currentView = [self.childViewControllers objectAtIndex:currentViewTag];
-    UIViewController *newView = [self.childViewControllers objectAtIndex:sender.tag];
-    
-    [self transitionFromViewController:currentView
-                    toViewController:newView
-                    duration:2
-                    options:UIViewAnimationOptionAutoreverse
-                    animations:^{}
-                    completion:^(BOOL finished){
-                        if (finished)
-                        {
-                            currentViewTag = sender.tag;
-                        }
-                    }];
-}
 
 @end
