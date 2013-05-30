@@ -31,7 +31,7 @@
     {
         _duration = 0;
         _animationOptions = UIViewAnimationOptionTransitionNone;
-        _activeIndex = -1;
+        _activeIndex = 1;
     }
     
     return self;
@@ -48,10 +48,12 @@
         float height = rect.size.height;
         float x = rect.origin.x;
         float y = rect.origin.y;
+        CGRect viewRect = CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height - rect.size.height);
             
         for (int i = 0; i < titles.count; i++)
         {
             controller = [[[classes objectAtIndex:i] alloc] init];
+            controller.view.frame = viewRect;
             [self addChildViewController:controller];
             
             buttonRect = CGRectMake(x + width * i, y, width, height);
@@ -61,6 +63,8 @@
             [button setTitle:[titles objectAtIndex:i] forState:UIControlStateNormal];
 
             [self.view addSubview:button];
+            
+            if (_activeIndex == i) [self.view addSubview:controller.view];
         }
     }
 }
