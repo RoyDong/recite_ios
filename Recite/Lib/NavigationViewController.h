@@ -18,6 +18,8 @@
 
 - (void)initTabs:(NSArray *)titles classes:(NSArray *)classes images:(NSArray *)images rect:(CGRect)rect;
 
+- (IBAction)tap:(id)sender;
+
 - (void)active:(NSInteger)index;
 
 @end

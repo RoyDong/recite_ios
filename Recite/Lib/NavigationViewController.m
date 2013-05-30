@@ -56,11 +56,18 @@
             
             buttonRect = CGRectMake(x + width * i, y, width, height);
             button = [[UIButton alloc] initWithFrame:buttonRect];
+            button.tag = i;
+            [button addTarget:self action:@selector(tap:) forControlEvents:1];
             [button setTitle:[titles objectAtIndex:i] forState:UIControlStateNormal];
 
             [self.view addSubview:button];
         }
     }
+}
+
+- (IBAction)tap:(UIButton *)sender
+{
+    [self active:sender.tag];
 }
 
 - (void)active:(NSInteger)index
