@@ -11,8 +11,6 @@
 
 @interface ViewController : NavigationViewController
 
-@property (nonatomic, strong) UserModel *user;
-
 - (void)showAuthView;
 
 @end

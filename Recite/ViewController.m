@@ -18,8 +18,6 @@
 
 @implementation ViewController
 
-@synthesize user = _user;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

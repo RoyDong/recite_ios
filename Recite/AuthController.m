@@ -7,7 +7,6 @@
 //
 
 #import "AuthController.h"
-#import "UserModel.h"
 
 @interface AuthController ()
 
@@ -68,7 +67,7 @@
 {
     if ([UserModel signin:self.email.text passwd:self.passwd.text])
     {
-        self.parent.contentDisplay = YES;
+        self.parent.contentDisplayed = YES;
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
