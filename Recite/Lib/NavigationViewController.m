@@ -20,7 +20,7 @@
 
 @synthesize activeIndex = _activeIndex;
 
-@synthesize contentDisplay = _contentDisplay;
+@synthesize contentDisplayed = _contentDisplayed;
 
 @synthesize tabInitialized = _tabInitialized;
 
@@ -50,7 +50,7 @@
             [button setTitle:[titles objectAtIndex:i] forState:UIControlStateNormal];
             [self.view addSubview:button];
 
-            if (_activeIndex == i && _contentDisplay) [self.view addSubview:controller.view];
+            if (_activeIndex == i && _contentDisplayed) [self.view addSubview:controller.view];
         }
         
         _tabInitialized = YES;
@@ -66,7 +66,7 @@
 {
     if (index == _activeIndex || index < 0 || index >= self.childViewControllers.count) return;
 
-    if (_contentDisplay)
+    if (_contentDisplayed)
     {
         UIViewController *currentController = [self.childViewControllers objectAtIndex:_activeIndex];
         UIViewController *controller = [self.childViewControllers objectAtIndex:index];
@@ -86,17 +86,17 @@
     else
     {
         _activeIndex = index;
-        self.contentDisplay = YES;
+        self.contentDisplayed = YES;
     }
 }
 
-- (void)setContentDisplay:(BOOL)contentDisplay
+- (void)setContentDisplayed:(BOOL)contentDisplayed
 {
-    if (contentDisplay == _contentDisplay) return;
+    if (contentDisplayed == _contentDisplayed) return;
     
     UIViewController *controller = [self.childViewControllers objectAtIndex:_activeIndex];
     
-    if (contentDisplay)
+    if (contentDisplayed)
     {
         [self.view addSubview:controller.view];
     }
@@ -105,7 +105,7 @@
         [controller removeFromParentViewController];
     }
 
-    _contentDisplay = contentDisplay;
+    _contentDisplayed = contentDisplayed;
 }
 
 @end

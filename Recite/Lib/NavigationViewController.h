@@ -16,7 +16,7 @@
 
 @property (nonatomic, readonly) NSInteger activeIndex;
 
-@property (nonatomic) BOOL contentDisplay;
+@property (nonatomic) BOOL contentDisplayed;
 
 @property (nonatomic, readonly) BOOL tabInitialized;
 

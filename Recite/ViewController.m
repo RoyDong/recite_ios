@@ -52,7 +52,7 @@
 {
     [super viewDidAppear:animated];
     
-    [UserModel currentUser] ? (self.contentDisplay = YES) : [self showAuthView];
+    [UserModel currentUser] ? (self.contentDisplayed = YES) : [self showAuthView];
 }
 
 - (void)showAuthView
