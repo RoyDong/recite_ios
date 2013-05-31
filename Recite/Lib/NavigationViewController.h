@@ -16,10 +16,14 @@
 
 @property (nonatomic, readonly) NSInteger activeIndex;
 
+@property (nonatomic) BOOL contentDisplay;
+
+@property (nonatomic, readonly) BOOL tabInitialized;
+
 - (void)initTabs:(NSArray *)titles classes:(NSArray *)classes images:(NSArray *)images rect:(CGRect)rect;
 
 - (IBAction)tap:(id)sender;
 
-- (void)active:(NSInteger)index;
+- (void)activeTab:(NSInteger)index;
 
 @end

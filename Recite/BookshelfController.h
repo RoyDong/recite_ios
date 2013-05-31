@@ -1,5 +1,5 @@
 //
-//  SettingController.h
+//  BookshelfController.h
 //  Recite
 //
 //  Created by Roy on 5/31/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingController : UIViewController
+@interface BookshelfController : UIViewController
 
 @end

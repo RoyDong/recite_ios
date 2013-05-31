@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HttpClient.h"
+
 
 @interface UserModel : NSObject
 
@@ -22,5 +22,7 @@
 + (UserModel *)userForUid:(int)uid;
 
 + (UserModel *)currentUser;
+
++ (BOOL)signin:(NSString *)email passwd:(NSString *)passwd;
 
 @end

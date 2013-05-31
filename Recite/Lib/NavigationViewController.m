@@ -9,9 +9,6 @@
 #import "NavigationViewController.h"
 
 @interface NavigationViewController ()
-{
-    NSMutableArray *tabs;
-}
 
 @end
 
@@ -23,23 +20,13 @@
 
 @synthesize activeIndex = _activeIndex;
 
-- (id)init
-{
-    self = [super init];
-    
-    if (self)
-    {
-        _duration = 0;
-        _animationOptions = UIViewAnimationOptionTransitionNone;
-        _activeIndex = 1;
-    }
-    
-    return self;
-}
+@synthesize contentDisplay = _contentDisplay;
+
+@synthesize tabInitialized = _tabInitialized;
 
 - (void)initTabs:(NSArray *)titles classes:(NSArray *)classes images:(NSArray *)images rect:(CGRect)rect
 {
-    if (titles.count == classes.count && titles.count == images.count)
+    if (!_tabInitialized && titles.count == classes.count && titles.count == images.count)
     {
         UIViewController *controller;
         UIButton *button;
@@ -49,50 +36,76 @@
         float x = rect.origin.x;
         float y = rect.origin.y;
         CGRect viewRect = CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height - rect.size.height);
-            
+
         for (int i = 0; i < titles.count; i++)
         {
             controller = [[[classes objectAtIndex:i] alloc] init];
             controller.view.frame = viewRect;
             [self addChildViewController:controller];
-            
+
             buttonRect = CGRectMake(x + width * i, y, width, height);
             button = [[UIButton alloc] initWithFrame:buttonRect];
             button.tag = i;
             [button addTarget:self action:@selector(tap:) forControlEvents:1];
             [button setTitle:[titles objectAtIndex:i] forState:UIControlStateNormal];
-
             [self.view addSubview:button];
-            
-            if (_activeIndex == i) [self.view addSubview:controller.view];
+
+            if (_activeIndex == i && _contentDisplay) [self.view addSubview:controller.view];
         }
+        
+        _tabInitialized = YES;
     }
 }
 
 - (IBAction)tap:(UIButton *)sender
 {
-    [self active:sender.tag];
+    [self activeTab:sender.tag];
 }
 
-- (void)active:(NSInteger)index
+- (void)activeTab:(NSInteger)index
 {
-    if (index == _activeIndex) return;
-    
-    UIViewController *controller = [self.childViewControllers objectAtIndex:index];
-    UIViewController *currentController = [self.childViewControllers objectAtIndex:_activeIndex];
-    
-    [self transitionFromViewController:currentController
+    if (index == _activeIndex || index < 0 || index >= self.childViewControllers.count) return;
+
+    if (_contentDisplay)
+    {
+        UIViewController *currentController = [self.childViewControllers objectAtIndex:_activeIndex];
+        UIViewController *controller = [self.childViewControllers objectAtIndex:index];
+        
+        [self transitionFromViewController:currentController
                             toViewController:controller
                             duration:_duration
                             options:_animationOptions
-                            animations:^{}
+                            animations:nil
                             completion:^(BOOL finished){
                                 if (finished)
                                 {
                                     _activeIndex = index;
                                 }
                             }];
+    }
+    else
+    {
+        _activeIndex = index;
+        self.contentDisplay = YES;
+    }
 }
 
+- (void)setContentDisplay:(BOOL)contentDisplay
+{
+    if (contentDisplay == _contentDisplay) return;
+    
+    UIViewController *controller = [self.childViewControllers objectAtIndex:_activeIndex];
+    
+    if (contentDisplay)
+    {
+        [self.view addSubview:controller.view];
+    }
+    else
+    {
+        [controller removeFromParentViewController];
+    }
+
+    _contentDisplay = contentDisplay;
+}
 
 @end

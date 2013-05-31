@@ -11,6 +11,14 @@
 		B074164D17575A8C002C770D /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B074164717575A8C002C770D /* BaseViewController.m */; };
 		B074164E17575A8C002C770D /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B074164917575A8C002C770D /* HttpClient.m */; };
 		B074164F17575A8C002C770D /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B074164B17575A8C002C770D /* NavigationViewController.m */; };
+		B074165317584FE0002C770D /* LessonController.m in Sources */ = {isa = PBXBuildFile; fileRef = B074165117584FE0002C770D /* LessonController.m */; };
+		B074165417584FE0002C770D /* LessonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B074165217584FE0002C770D /* LessonController.xib */; };
+		B074165817585027002C770D /* BookshelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = B074165617585027002C770D /* BookshelfController.m */; };
+		B074165917585027002C770D /* BookshelfController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B074165717585027002C770D /* BookshelfController.xib */; };
+		B074165D17585047002C770D /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = B074165B17585047002C770D /* SettingController.m */; };
+		B074165E17585047002C770D /* SettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B074165C17585047002C770D /* SettingController.xib */; };
+		B074166217585077002C770D /* AuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = B074166017585077002C770D /* AuthController.m */; };
+		B074166317585077002C770D /* AuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B074166117585077002C770D /* AuthController.xib */; };
 		B07E0D801740CEB5007F8E48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E0D7F1740CEB5007F8E48 /* UIKit.framework */; };
 		B07E0D821740CEB5007F8E48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E0D811740CEB5007F8E48 /* Foundation.framework */; };
 		B07E0D841740CEB5007F8E48 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E0D831740CEB5007F8E48 /* CoreGraphics.framework */; };
@@ -27,16 +35,6 @@
 		B07E0DA61740CEB6007F8E48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E0D811740CEB5007F8E48 /* Foundation.framework */; };
 		B07E0DAE1740CEB6007F8E48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B07E0DAC1740CEB6007F8E48 /* InfoPlist.strings */; };
 		B07E0DB11740CEB6007F8E48 /* ReciteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DB01740CEB6007F8E48 /* ReciteTests.m */; };
-		B07E0DC31740D3BE007F8E48 /* SignupController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DC11740D3BE007F8E48 /* SignupController.m */; };
-		B07E0DC41740D3BE007F8E48 /* SignupController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DC11740D3BE007F8E48 /* SignupController.m */; };
-		B07E0DC51740D3BE007F8E48 /* SignupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07E0DC21740D3BE007F8E48 /* SignupController.xib */; };
-		B07E0DC61740D3BE007F8E48 /* SignupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07E0DC21740D3BE007F8E48 /* SignupController.xib */; };
-		B07E0DD11740EFC8007F8E48 /* SigninController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DCF1740EFC8007F8E48 /* SigninController.m */; };
-		B07E0DD21740EFC8007F8E48 /* SigninController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E0DCF1740EFC8007F8E48 /* SigninController.m */; };
-		B07E0DD31740EFC8007F8E48 /* SigninController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07E0DD01740EFC8007F8E48 /* SigninController.xib */; };
-		B07E0DD41740EFC8007F8E48 /* SigninController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07E0DD01740EFC8007F8E48 /* SigninController.xib */; };
-		B09BC40D174225CA00760B87 /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = B09BC40B174225CA00760B87 /* SettingController.m */; };
-		B09BC40E174225CA00760B87 /* SettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B09BC40C174225CA00760B87 /* SettingController.xib */; };
 		B0D1157617433A5F009BCC58 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D1157517433A5F009BCC58 /* UserModel.m */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +57,18 @@
 		B074164917575A8C002C770D /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
 		B074164A17575A8C002C770D /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		B074164B17575A8C002C770D /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		B074165017584FE0002C770D /* LessonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LessonController.h; sourceTree = "<group>"; };
+		B074165117584FE0002C770D /* LessonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LessonController.m; sourceTree = "<group>"; };
+		B074165217584FE0002C770D /* LessonController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LessonController.xib; sourceTree = "<group>"; };
+		B074165517585027002C770D /* BookshelfController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookshelfController.h; sourceTree = "<group>"; };
+		B074165617585027002C770D /* BookshelfController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookshelfController.m; sourceTree = "<group>"; };
+		B074165717585027002C770D /* BookshelfController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookshelfController.xib; sourceTree = "<group>"; };
+		B074165A17585047002C770D /* SettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingController.h; sourceTree = "<group>"; };
+		B074165B17585047002C770D /* SettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingController.m; sourceTree = "<group>"; };
+		B074165C17585047002C770D /* SettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingController.xib; sourceTree = "<group>"; };
+		B074165F17585077002C770D /* AuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthController.h; sourceTree = "<group>"; };
+		B074166017585077002C770D /* AuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthController.m; sourceTree = "<group>"; };
+		B074166117585077002C770D /* AuthController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthController.xib; sourceTree = "<group>"; };
 		B07E0D7C1740CEB5007F8E48 /* Recite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07E0D7F1740CEB5007F8E48 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B07E0D811740CEB5007F8E48 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,16 +91,6 @@
 		B07E0DAD1740CEB6007F8E48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B07E0DAF1740CEB6007F8E48 /* ReciteTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReciteTests.h; sourceTree = "<group>"; };
 		B07E0DB01740CEB6007F8E48 /* ReciteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReciteTests.m; sourceTree = "<group>"; };
-		B07E0DC01740D3BE007F8E48 /* SignupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupController.h; sourceTree = "<group>"; };
-		B07E0DC11740D3BE007F8E48 /* SignupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupController.m; sourceTree = "<group>"; };
-		B07E0DC21740D3BE007F8E48 /* SignupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupController.xib; sourceTree = "<group>"; };
-		B07E0DCE1740EFC8007F8E48 /* SigninController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninController.h; sourceTree = "<group>"; };
-		B07E0DCF1740EFC8007F8E48 /* SigninController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninController.m; sourceTree = "<group>"; };
-		B07E0DD01740EFC8007F8E48 /* SigninController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SigninController.xib; sourceTree = "<group>"; };
-		B09BC40A174225CA00760B87 /* SettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingController.h; sourceTree = "<group>"; };
-		B09BC40B174225CA00760B87 /* SettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingController.m; sourceTree = "<group>"; };
-		B09BC40C174225CA00760B87 /* SettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingController.xib; sourceTree = "<group>"; };
-		B0B837DB1743874B0007F418 /* ViewConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewConstant.h; sourceTree = "<group>"; };
 		B0D1157417433A5F009BCC58 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		B0D1157517433A5F009BCC58 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,26 +216,20 @@
 				B07E0D971740CEB5007F8E48 /* ViewController.h */,
 				B07E0D981740CEB5007F8E48 /* ViewController.m */,
 				B07E0D9A1740CEB5007F8E48 /* ViewController.xib */,
-				B09BC4091742200E00760B87 /* User */,
-				B0B837DB1743874B0007F418 /* ViewConstant.h */,
+				B074165017584FE0002C770D /* LessonController.h */,
+				B074165117584FE0002C770D /* LessonController.m */,
+				B074165217584FE0002C770D /* LessonController.xib */,
+				B074165517585027002C770D /* BookshelfController.h */,
+				B074165617585027002C770D /* BookshelfController.m */,
+				B074165717585027002C770D /* BookshelfController.xib */,
+				B074165A17585047002C770D /* SettingController.h */,
+				B074165B17585047002C770D /* SettingController.m */,
+				B074165C17585047002C770D /* SettingController.xib */,
+				B074165F17585077002C770D /* AuthController.h */,
+				B074166017585077002C770D /* AuthController.m */,
+				B074166117585077002C770D /* AuthController.xib */,
 			);
 			name = Controller;
-			sourceTree = "<group>";
-		};
-		B09BC4091742200E00760B87 /* User */ = {
-			isa = PBXGroup;
-			children = (
-				B07E0DC01740D3BE007F8E48 /* SignupController.h */,
-				B07E0DC11740D3BE007F8E48 /* SignupController.m */,
-				B07E0DC21740D3BE007F8E48 /* SignupController.xib */,
-				B07E0DCE1740EFC8007F8E48 /* SigninController.h */,
-				B07E0DCF1740EFC8007F8E48 /* SigninController.m */,
-				B07E0DD01740EFC8007F8E48 /* SigninController.xib */,
-				B09BC40A174225CA00760B87 /* SettingController.h */,
-				B09BC40B174225CA00760B87 /* SettingController.m */,
-				B09BC40C174225CA00760B87 /* SettingController.xib */,
-			);
-			name = User;
 			sourceTree = "<group>";
 		};
 		B0D11570174338DB009BCC58 /* Model */ = {
@@ -323,9 +317,10 @@
 				B07E0D941740CEB5007F8E48 /* Default@2x.png in Resources */,
 				B07E0D961740CEB5007F8E48 /* Default-568h@2x.png in Resources */,
 				B07E0D9C1740CEB5007F8E48 /* ViewController.xib in Resources */,
-				B07E0DC51740D3BE007F8E48 /* SignupController.xib in Resources */,
-				B07E0DD31740EFC8007F8E48 /* SigninController.xib in Resources */,
-				B09BC40E174225CA00760B87 /* SettingController.xib in Resources */,
+				B074165417584FE0002C770D /* LessonController.xib in Resources */,
+				B074165917585027002C770D /* BookshelfController.xib in Resources */,
+				B074165E17585047002C770D /* SettingController.xib in Resources */,
+				B074166317585077002C770D /* AuthController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,8 +329,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07E0DAE1740CEB6007F8E48 /* InfoPlist.strings in Resources */,
-				B07E0DC61740D3BE007F8E48 /* SignupController.xib in Resources */,
-				B07E0DD41740EFC8007F8E48 /* SigninController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,14 +358,15 @@
 				B07E0D8C1740CEB5007F8E48 /* main.m in Sources */,
 				B07E0D901740CEB5007F8E48 /* AppDelegate.m in Sources */,
 				B07E0D991740CEB5007F8E48 /* ViewController.m in Sources */,
-				B07E0DC31740D3BE007F8E48 /* SignupController.m in Sources */,
-				B07E0DD11740EFC8007F8E48 /* SigninController.m in Sources */,
-				B09BC40D174225CA00760B87 /* SettingController.m in Sources */,
 				B0D1157617433A5F009BCC58 /* UserModel.m in Sources */,
 				B074164C17575A8C002C770D /* BaseModel.m in Sources */,
 				B074164D17575A8C002C770D /* BaseViewController.m in Sources */,
 				B074164E17575A8C002C770D /* HttpClient.m in Sources */,
 				B074164F17575A8C002C770D /* NavigationViewController.m in Sources */,
+				B074165317584FE0002C770D /* LessonController.m in Sources */,
+				B074165817585027002C770D /* BookshelfController.m in Sources */,
+				B074165D17585047002C770D /* SettingController.m in Sources */,
+				B074166217585077002C770D /* AuthController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,8 +375,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07E0DB11740CEB6007F8E48 /* ReciteTests.m in Sources */,
-				B07E0DC41740D3BE007F8E48 /* SignupController.m in Sources */,
-				B07E0DD21740EFC8007F8E48 /* SigninController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

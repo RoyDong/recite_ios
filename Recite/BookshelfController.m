@@ -1,18 +1,18 @@
 //
-//  SettingController.m
+//  BookshelfController.m
 //  Recite
 //
 //  Created by Roy on 5/31/13.
 //  Copyright (c) 2013 Roy. All rights reserved.
 //
 
-#import "SettingController.h"
+#import "BookshelfController.h"
 
-@interface SettingController ()
+@interface BookshelfController ()
 
 @end
 
-@implementation SettingController
+@implementation BookshelfController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,11 +33,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
 }
 
 @end

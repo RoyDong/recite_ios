@@ -7,6 +7,7 @@
 //
 
 #import "UserModel.h"
+#import "HttpClient.h"
 
 static NSMutableArray *instances;
 
@@ -78,6 +79,20 @@ static UserModel *current;
     }
 
     return current;
+}
+
++ (BOOL)signin:(NSString *)email passwd:(NSString *)passwd
+{
+    NSDictionary *account = [NSDictionary dictionaryWithObjectsAndKeys:
+                             email, @"email",
+                             passwd, @"password", nil];
+    
+    HttpClient *client = [HttpClient singleInstance];
+    [client call:@"login_check" post:account];
+    
+    if (client.code) [client call:@"user/signup" post:account];
+
+    return !client.code;
 }
 
 - (void)initContent:(NSDictionary *)dict

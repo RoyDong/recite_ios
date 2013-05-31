@@ -45,7 +45,6 @@ static HttpClient *singleInstance;
 @synthesize message = _message;
 @synthesize code = _code;
 
-
 - (NSURL *)createUrlWithApi:(NSString *)api
 {
     return [NSURL URLWithString:[self.host stringByAppendingString: api]];
@@ -91,8 +90,8 @@ static HttpClient *singleInstance;
     
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
-    
-    NSString *content =[NSString stringWithCString:[response bytes] encoding:NSUTF8StringEncoding];
+
+    NSString *content = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     NSLog(@"%@", content);
 
     if(error.code)
@@ -108,7 +107,6 @@ static HttpClient *singleInstance;
 
     return [result objectForKey:@"data"];
 }
-
 
 - (NSString *)buildHttpFormData:(NSDictionary *)parameters
 {

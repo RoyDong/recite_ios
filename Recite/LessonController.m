@@ -1,18 +1,20 @@
 //
-//  SettingController.m
+//  LessonController.m
 //  Recite
 //
 //  Created by Roy on 5/31/13.
 //  Copyright (c) 2013 Roy. All rights reserved.
 //
 
-#import "SettingController.h"
+#import "LessonController.h"
+#import "ViewController.h"
 
-@interface SettingController ()
+
+@interface LessonController ()
 
 @end
 
-@implementation SettingController
+@implementation LessonController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,18 +28,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
 }
 
 @end
