@@ -19,6 +19,7 @@
 		B074165E17585047002C770D /* SettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B074165C17585047002C770D /* SettingController.xib */; };
 		B074166217585077002C770D /* AuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = B074166017585077002C770D /* AuthController.m */; };
 		B074166317585077002C770D /* AuthController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B074166117585077002C770D /* AuthController.xib */; };
+		B07416661758ABC5002C770D /* LessonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B07416651758ABC5002C770D /* LessonModel.m */; };
 		B07E0D801740CEB5007F8E48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E0D7F1740CEB5007F8E48 /* UIKit.framework */; };
 		B07E0D821740CEB5007F8E48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E0D811740CEB5007F8E48 /* Foundation.framework */; };
 		B07E0D841740CEB5007F8E48 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E0D831740CEB5007F8E48 /* CoreGraphics.framework */; };
@@ -69,6 +70,8 @@
 		B074165F17585077002C770D /* AuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthController.h; sourceTree = "<group>"; };
 		B074166017585077002C770D /* AuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthController.m; sourceTree = "<group>"; };
 		B074166117585077002C770D /* AuthController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthController.xib; sourceTree = "<group>"; };
+		B07416641758ABC5002C770D /* LessonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LessonModel.h; sourceTree = "<group>"; };
+		B07416651758ABC5002C770D /* LessonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LessonModel.m; sourceTree = "<group>"; };
 		B07E0D7C1740CEB5007F8E48 /* Recite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07E0D7F1740CEB5007F8E48 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B07E0D811740CEB5007F8E48 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -237,6 +240,8 @@
 			children = (
 				B0D1157417433A5F009BCC58 /* UserModel.h */,
 				B0D1157517433A5F009BCC58 /* UserModel.m */,
+				B07416641758ABC5002C770D /* LessonModel.h */,
+				B07416651758ABC5002C770D /* LessonModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				B074165817585027002C770D /* BookshelfController.m in Sources */,
 				B074165D17585047002C770D /* SettingController.m in Sources */,
 				B074166217585077002C770D /* AuthController.m in Sources */,
+				B07416661758ABC5002C770D /* LessonModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
