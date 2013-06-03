@@ -18,11 +18,6 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -36,7 +31,7 @@
         float screenWidth = self.view.frame.size.width;
         float screenHeight = self.view.frame.size.height;
         float navHeight = 40.0;
-        float navWidth = 200.0;
+        float navWidth = screenWidth;
         CGRect navRect = CGRectMake((screenWidth - navWidth ) / 2, screenHeight - navHeight, navWidth, navHeight);
         
         [self initTabs:[NSArray arrayWithObjects:@"Lesson", @"Bookshelf", @"Setting", nil]

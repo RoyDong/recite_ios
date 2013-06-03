@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B02EA756175C4BEE006085DB /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B02EA755175C4BED006085DB /* BookModel.m */; };
 		B074164C17575A8C002C770D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B074164517575A8C002C770D /* BaseModel.m */; };
 		B074164D17575A8C002C770D /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B074164717575A8C002C770D /* BaseViewController.m */; };
 		B074164E17575A8C002C770D /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B074164917575A8C002C770D /* HttpClient.m */; };
@@ -50,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B02EA754175C4BED006085DB /* BookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
+		B02EA755175C4BED006085DB /* BookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
 		B074164417575A8C002C770D /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		B074164517575A8C002C770D /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		B074164617575A8C002C770D /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -242,6 +245,8 @@
 				B0D1157517433A5F009BCC58 /* UserModel.m */,
 				B07416641758ABC5002C770D /* LessonModel.h */,
 				B07416651758ABC5002C770D /* LessonModel.m */,
+				B02EA754175C4BED006085DB /* BookModel.h */,
+				B02EA755175C4BED006085DB /* BookModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				B074165D17585047002C770D /* SettingController.m in Sources */,
 				B074166217585077002C770D /* AuthController.m in Sources */,
 				B07416661758ABC5002C770D /* LessonModel.m in Sources */,
+				B02EA756175C4BEE006085DB /* BookModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 //
 
 #import "LessonController.h"
-#import "ViewController.h"
+#import "LessonModel.h"
 
 
 @interface LessonController ()
@@ -32,7 +32,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
+    [LessonModel lessons];
 }
 
 - (void)viewDidAppear:(BOOL)animated

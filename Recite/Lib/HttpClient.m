@@ -129,12 +129,9 @@ static HttpClient *singleInstance;
 
     for(NSHTTPCookie *cookie in [cookieStore cookies])
     {
-        if ([cookie.name isEqualToString:key])
-        {
-            return cookie.value;
-        }
+        if ([cookie.name isEqualToString:key]) return cookie.value;
     }
-    
+
     return nil;
 }
 

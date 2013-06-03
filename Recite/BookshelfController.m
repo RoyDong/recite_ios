@@ -7,6 +7,7 @@
 //
 
 #import "BookshelfController.h"
+#import "BookModel.h"
 
 @interface BookshelfController ()
 
@@ -26,7 +27,48 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    scrollView.backgroundColor = [UIColor grayColor];
+    scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 1000);
+    scrollView.delegate = self;
+
+    NSArray *books = [BookModel booksForPage:1];
+    BookModel *book;
+    UIButton *button;
+
+    CGRect rect;
+    CGRect frame = self.view.frame;
+    float width = frame.size.width - 50;
+
+    float ox = frame.origin.x + 25;
+    float oy = frame.origin.y + 25;
+    float x, y;
+    float padWidth = 10, padHeight = 20;
+    float labelWidth = (width + padWidth) / 3 - padWidth;
+    float labelHeight = 50;
+
+    for (int i = 0; i < books.count; i++)
+    {
+        book = [books objectAtIndex:i];
+        
+        x = ox + i % 3 * (labelWidth + padWidth);
+        y = oy + ((int)(i / 3)) * (labelHeight + padHeight);
+
+        rect = CGRectMake(x, y, labelWidth, labelHeight);
+        button = [[UIButton alloc] initWithFrame:rect];
+        [button setTitle:book.title forState:UIControlStateNormal];
+        button.backgroundColor = [UIColor greenColor];
+        
+        [scrollView addSubview:button];
+    }
+
+    [self.view addSubview: scrollView];
 }
 
 - (void)didReceiveMemoryWarning

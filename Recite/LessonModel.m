@@ -13,7 +13,10 @@
 
 + (NSArray *)lessons
 {
+    NSDictionary *lessons = [[HttpClient singleInstance] call:@"course/lessons"];
     
+    
+    return nil;
 }
 
 @end
