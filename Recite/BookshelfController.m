@@ -35,7 +35,6 @@
 
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     scrollView.backgroundColor = [UIColor grayColor];
-    scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 1000);
     scrollView.delegate = self;
 
     NSArray *books = [BookModel booksForPage:1];
@@ -45,10 +44,9 @@
     CGRect rect;
     CGRect frame = self.view.frame;
     float width = frame.size.width - 50;
-
     float ox = frame.origin.x + 25;
     float oy = frame.origin.y + 25;
-    float x, y;
+    float x, y, h = 50;
     float padWidth = 10, padHeight = 20;
     float labelWidth = (width + padWidth) / 3 - padWidth;
     float labelHeight = 50;
@@ -64,10 +62,12 @@
         button = [[UIButton alloc] initWithFrame:rect];
         [button setTitle:book.title forState:UIControlStateNormal];
         button.backgroundColor = [UIColor greenColor];
+        h += labelHeight + padHeight;
         
         [scrollView addSubview:button];
     }
-
+    
+    scrollView.contentSize = CGSizeMake(self.view.frame.size.width, h);
     [self.view addSubview: scrollView];
 }
 
