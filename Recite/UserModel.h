@@ -25,4 +25,6 @@
 
 + (BOOL)signin:(NSString *)email passwd:(NSString *)passwd;
 
++ (void)signout;
+
 @end

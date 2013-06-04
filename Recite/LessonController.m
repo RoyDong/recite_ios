@@ -8,7 +8,8 @@
 
 #import "LessonController.h"
 #import "LessonModel.h"
-
+#import "BookModel.h"
+#import "UserModel.h"
 
 @interface LessonController ()
 
@@ -16,34 +17,19 @@
 
 @implementation LessonController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)initContent
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+    [super initContent];
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+    UserModel *user = [UserModel currentUser];
+    [BookModel purchasedBooks:user.uid];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     [LessonModel lessons];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -16,14 +16,22 @@
 
 @property (nonatomic, readonly) NSInteger activeIndex;
 
-@property (nonatomic) BOOL contentDisplayed;
+@property (nonatomic) BOOL contentNeedDisplay;
 
 @property (nonatomic, readonly) BOOL tabInitialized;
+
+@property (nonatomic, readonly) CGRect contentFrame;
+
+@property (nonatomic, readonly) NavigationViewController *parentViewController;
 
 - (void)initTabs:(NSArray *)titles classes:(NSArray *)classes images:(NSArray *)images rect:(CGRect)rect;
 
 - (IBAction)tap:(id)sender;
 
 - (void)activeTab:(NSInteger)index;
+
+- (void)initContent;
+
+- (void)popMessage:(NSString *)text;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "BookshelfController.h"
 #import "BookModel.h"
+#import "HttpClient.h"
 
 @interface BookshelfController ()
 
@@ -24,25 +25,20 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)initContent
 {
-    [super viewDidLoad];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    [super initContent];
+    
+    CGRect frame = self.parentViewController.contentFrame;
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:frame];
     scrollView.backgroundColor = [UIColor grayColor];
     scrollView.delegate = self;
-
+    
     NSArray *books = [BookModel booksForPage:1];
     BookModel *book;
     UIButton *button;
-
+    
     CGRect rect;
-    CGRect frame = self.view.frame;
     float width = frame.size.width - 50;
     float ox = frame.origin.x + 25;
     float oy = frame.origin.y + 25;
@@ -50,31 +46,33 @@
     float padWidth = 10, padHeight = 20;
     float labelWidth = (width + padWidth) / 3 - padWidth;
     float labelHeight = 50;
-
+    
     for (int i = 0; i < books.count; i++)
     {
         book = [books objectAtIndex:i];
-        
+
+        h += labelHeight + padHeight;
         x = ox + i % 3 * (labelWidth + padWidth);
         y = oy + ((int)(i / 3)) * (labelHeight + padHeight);
-
         rect = CGRectMake(x, y, labelWidth, labelHeight);
+
         button = [[UIButton alloc] initWithFrame:rect];
         [button setTitle:book.title forState:UIControlStateNormal];
         button.backgroundColor = [UIColor greenColor];
-        h += labelHeight + padHeight;
-        
+        button.tag = book.bid;
+        [button addTarget:self action:@selector(purchase:) forControlEvents:UIControlEventTouchUpInside];
+
         [scrollView addSubview:button];
     }
-    
+
     scrollView.contentSize = CGSizeMake(self.view.frame.size.width, h);
     [self.view addSubview: scrollView];
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)purchase:(UIButton *)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [BookModel purchase:sender.tag];
+    [self popMessage:[[HttpClient singleInstance] message]];
 }
 
 @end

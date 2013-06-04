@@ -57,12 +57,9 @@ static UserModel *current;
 {
     UserModel *user;
     
-    if (!instances) instances = [[NSMutableArray alloc] init];
-
-    
     for (int i = 0; i < instances.count; i++)
     {
-        user = [instances objectAtIndex:uid];
+        user = [instances objectAtIndex:i];
         
         if (user.uid == uid) return user;
     }
@@ -109,6 +106,12 @@ static UserModel *current;
     if (client.code) [client call:@"user/signup" post:account];
 
     return !client.code;
+}
+
++ (void)signout
+{
+    [[HttpClient singleInstance] call:@"user/signout"];
+    current = nil;
 }
 
 - (void)initContent:(NSDictionary *)dict

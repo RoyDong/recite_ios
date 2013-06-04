@@ -45,12 +45,13 @@
 {
     [super viewDidAppear:animated];
     
-    [UserModel currentUser] ? (self.contentDisplayed = YES) : [self showAuthView];
+    [UserModel currentUser] ? (self.contentNeedDisplay = YES) : [self showAuthView];
 }
 
 - (void)showAuthView
 {
     AuthController *controller = [[AuthController alloc] init];
+
     controller.parent = self;
     [self presentViewController:controller animated:YES completion:nil];
 }

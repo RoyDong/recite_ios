@@ -58,7 +58,7 @@ static void initializeInstances()
 
     for (int i = 0; i < instances.count; i++)
     {
-        book = [instances objectAtIndex:bid];
+        book = [instances objectAtIndex:i];
         
         if (book.bid == bid) return book;
     }
@@ -92,14 +92,22 @@ static void initializeInstances()
     return [NSArray arrayWithArray:instances];
 }
 
-+ (NSArray *)purchased:(int)uid
++ (BOOL)purchase:(int)bid
+{
+    HttpClient *client = [HttpClient singleInstance];
+    [client call:[NSString stringWithFormat:@"book/%d/purchase", bid]];
+
+    return !client.code;
+}
+
++ (NSArray *)purchasedBooks:(int)uid
 {
     return nil;
 }
 
 - (void)initContent:(NSDictionary *)dict
 {
-    self.bid = [[dict objectForKey:@"bid"] intValue];
+    self.bid = [[dict objectForKey:@"id"] intValue];
     self.title = [dict objectForKey:@"title"];
     self.description = [dict objectForKey:@"description"];
     self.level = [[dict objectForKey:@"level"] intValue];

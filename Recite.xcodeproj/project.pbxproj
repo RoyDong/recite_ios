@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B02EA756175C4BEE006085DB /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B02EA755175C4BED006085DB /* BookModel.m */; };
 		B074164C17575A8C002C770D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B074164517575A8C002C770D /* BaseModel.m */; };
-		B074164D17575A8C002C770D /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B074164717575A8C002C770D /* BaseViewController.m */; };
 		B074164E17575A8C002C770D /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B074164917575A8C002C770D /* HttpClient.m */; };
 		B074164F17575A8C002C770D /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B074164B17575A8C002C770D /* NavigationViewController.m */; };
 		B074165317584FE0002C770D /* LessonController.m in Sources */ = {isa = PBXBuildFile; fileRef = B074165117584FE0002C770D /* LessonController.m */; };
@@ -55,8 +54,6 @@
 		B02EA755175C4BED006085DB /* BookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
 		B074164417575A8C002C770D /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		B074164517575A8C002C770D /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
-		B074164617575A8C002C770D /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		B074164717575A8C002C770D /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		B074164817575A8C002C770D /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
 		B074164917575A8C002C770D /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
 		B074164A17575A8C002C770D /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
@@ -130,8 +127,6 @@
 			children = (
 				B074164417575A8C002C770D /* BaseModel.h */,
 				B074164517575A8C002C770D /* BaseModel.m */,
-				B074164617575A8C002C770D /* BaseViewController.h */,
-				B074164717575A8C002C770D /* BaseViewController.m */,
 				B074164817575A8C002C770D /* HttpClient.h */,
 				B074164917575A8C002C770D /* HttpClient.m */,
 				B074164A17575A8C002C770D /* NavigationViewController.h */,
@@ -370,7 +365,6 @@
 				B07E0D991740CEB5007F8E48 /* ViewController.m in Sources */,
 				B0D1157617433A5F009BCC58 /* UserModel.m in Sources */,
 				B074164C17575A8C002C770D /* BaseModel.m in Sources */,
-				B074164D17575A8C002C770D /* BaseViewController.m in Sources */,
 				B074164E17575A8C002C770D /* HttpClient.m in Sources */,
 				B074164F17575A8C002C770D /* NavigationViewController.m in Sources */,
 				B074165317584FE0002C770D /* LessonController.m in Sources */,

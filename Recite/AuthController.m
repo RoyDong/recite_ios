@@ -7,6 +7,7 @@
 //
 
 #import "AuthController.h"
+#import "HttpClient.h"
 
 @interface AuthController ()
 
@@ -46,8 +47,8 @@
     
     _button.frame = CGRectMake((pageWidth - width) / 2, 250, width, height);
     [_button setTitle:@"Sign in" forState:UIControlStateNormal];
-    [_button setBackgroundColor:[UIColor yellowColor]];
-    [_button addTarget:self action:@selector(submitAccount:) forControlEvents:1];
+    [_button setBackgroundColor:[UIColor brownColor]];
+    [_button addTarget:self action:@selector(submitAccount:) forControlEvents:UIControlEventTouchUpInside];
 
     [self.view addSubview:_button];
 }
@@ -65,10 +66,14 @@
 
 - (IBAction)submitAccount:(UIButton *)sender
 {
-    if ([UserModel signin:self.email.text passwd:self.passwd.text])
+    if ([UserModel signin:_email.text passwd:_passwd.text])
     {
-        self.parent.contentDisplayed = YES;
+        self.parent.contentNeedDisplay = YES;
         [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        [self.parent popMessage:[[HttpClient singleInstance] message]];
     }
 }
 

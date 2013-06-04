@@ -24,7 +24,9 @@
 
 + (NSArray *)booksForPage:(int)page;
 
-+ (NSArray *)purchased:(int)uid;
++ (BOOL)purchase:(int)bid;
+
++ (NSArray *)purchasedBooks:(int)uid;
 
 
 @end

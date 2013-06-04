@@ -6,8 +6,14 @@
 //  Copyright (c) 2013 Roy. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ViewController.h"
 
-@interface SettingController : UIViewController
+@interface SettingController : NavigationViewController
+
+@property (nonatomic, readonly) ViewController *parentViewController;
+
+@property (nonatomic, strong) UILabel *name;
+
+@property (nonatomic, strong) UILabel *email;
 
 @end

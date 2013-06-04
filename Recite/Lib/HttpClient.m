@@ -92,7 +92,7 @@ static HttpClient *singleInstance;
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
 
     NSString *content = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", content);
+    NSLog(@"%@", [NSString stringWithFormat:@"%@: %@", api, content]);
 
     if(error.code)
     {

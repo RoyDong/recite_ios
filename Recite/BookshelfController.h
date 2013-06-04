@@ -8,6 +8,6 @@
 
 #import "ViewController.h"
 
-@interface BookshelfController : UIViewController
+@interface BookshelfController : NavigationViewController <UIScrollViewDelegate>
 
 @end
