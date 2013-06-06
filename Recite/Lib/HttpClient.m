@@ -33,7 +33,7 @@ static HttpClient *singleInstance;
     
     if(self)
     {
-        _host = @"http://roy.recite.dev.xq.lab/";
+        _host = @"http://recite.arch";
         request = [[NSMutableURLRequest alloc] init];
         [request setValue:@"json" forHTTPHeaderField:@"Response-Format"];
     }

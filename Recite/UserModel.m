@@ -37,7 +37,7 @@ static UserModel *current;
     if (!user)
     {
         HttpClient *client = [HttpClient singleInstance];
-        NSDictionary *dict = [client call:[NSString stringWithFormat:@"user/%i", uid]];
+        NSDictionary *dict = [client call:[NSString stringWithFormat:@"/user/%i", uid]];
         
         if (client.code)
         {
@@ -72,7 +72,7 @@ static UserModel *current;
     if (!current)
     {
         HttpClient *client = [HttpClient singleInstance];
-        NSDictionary *dict = [client call:@"user/current"];
+        NSDictionary *dict = [client call:@"/user"];
         
         if (client.code)
         {
@@ -97,20 +97,20 @@ static UserModel *current;
 {
     NSDictionary *account = [NSDictionary dictionaryWithObjectsAndKeys:
                              email, @"email",
-                             passwd, @"password",
+                             passwd, @"passwd",
                              @"1", @"remember_me", nil];
     
     HttpClient *client = [HttpClient singleInstance];
-    [client call:@"login_check" post:account];
+    [client call:@"/signin" post:account];
     
-    if (client.code) [client call:@"user/signup" post:account];
+    if (client.code == 13) [client call:@"/signup" post:account];
 
     return !client.code;
 }
 
 + (void)signout
 {
-    [[HttpClient singleInstance] call:@"user/signout"];
+    [[HttpClient singleInstance] call:@"/signout"];
     current = nil;
 }
 
