@@ -17,8 +17,6 @@
 
 @property (nonatomic, strong) NSString *name;
 
-@property (nonatomic, strong) NSString *role;
-
 + (UserModel *)userForUid:(int)uid;
 
 + (UserModel *)currentUser;

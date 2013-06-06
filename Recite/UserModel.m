@@ -27,8 +27,6 @@ static UserModel *current;
 
 @synthesize name;
 
-@synthesize role;
-
 
 + (UserModel *)userForUid:(int)uid
 {
@@ -99,10 +97,10 @@ static UserModel *current;
                              email, @"email",
                              passwd, @"passwd",
                              @"1", @"remember_me", nil];
-    
+
     HttpClient *client = [HttpClient singleInstance];
     [client call:@"/signin" post:account];
-    
+
     if (client.code == 13) [client call:@"/signup" post:account];
 
     return !client.code;
@@ -119,7 +117,6 @@ static UserModel *current;
     self.uid = [[dict objectForKey:@"id"] intValue];
     self.email = [dict objectForKey:@"email"];
     self.name = [dict objectForKey:@"name"];
-    self.role = [dict objectForKey:@"role"];
 }
 
 @end
