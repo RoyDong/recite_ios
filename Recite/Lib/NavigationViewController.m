@@ -87,12 +87,8 @@
                                   duration:_duration
                                    options:_animationOptions
                                 animations:nil
-                                completion:^(BOOL finished){
-                                   if (finished)
-                                   {
-                                      _activeIndex = index;
-                                   }
-                            }];
+                                completion:nil];
+        _activeIndex = index;
     }
     else
     {

@@ -95,7 +95,7 @@ static void initializeInstances()
 + (BOOL)purchase:(int)bid
 {
     HttpClient *client = [HttpClient singleInstance];
-    [client call:[NSString stringWithFormat:@"book/%d/purchase", bid]];
+    [client call:[NSString stringWithFormat:@"book/%i/purchase", bid]];
 
     return !client.code;
 }

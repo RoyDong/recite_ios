@@ -78,16 +78,15 @@ static HttpClient *singleInstance;
     currentApi = api;
     NSError *error;
     NSURL *url = [self createUrlWithApi:api query:query];
-
     [request setURL:url];
-    [request setHTTPMethod:@"POST"];
 
-    if(post)
+    if (post)
     {
         NSData *postData = [[self buildHttpFormData:post] dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-        [request setHTTPBody:postData];        
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:postData]; 
     }
-    
+
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
 
@@ -96,8 +95,8 @@ static HttpClient *singleInstance;
 
     if(error.code)
     {
-        _message = @"Server error";
-        _code = 1;
+        _message = @"Server avalialbe";
+        _code = error.code;
 
         return nil;
     }
