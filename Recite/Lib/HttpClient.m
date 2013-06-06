@@ -10,6 +10,9 @@
 #import <Foundation/Foundation.h>
 
 @interface HttpClient()
+{
+    NSMutableURLRequest *request;
+}
 
 @end
 
@@ -75,7 +78,6 @@ static HttpClient *singleInstance;
 
 - (NSDictionary *)call:(NSString *)api post:(NSDictionary *)post query:(NSDictionary *)query
 {
-    currentApi = api;
     NSError *error;
     NSURL *url = [self createUrlWithApi:api query:query];
     [request setURL:url];
@@ -87,7 +89,16 @@ static HttpClient *singleInstance;
         [request setHTTPBody:postData]; 
     }
 
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    
+    if (error.code)
+    {
+        _message = @"Network is down";
+        _code = error.code;
+        
+        return nil;
+    }
+    
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
 
     NSString *content = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
@@ -95,7 +106,7 @@ static HttpClient *singleInstance;
 
     if(error.code)
     {
-        _message = @"Server avalialbe";
+        _message = @"Server error";
         _code = error.code;
 
         return nil;
@@ -103,6 +114,8 @@ static HttpClient *singleInstance;
     
     _message = [result objectForKey:@"message"];
     _code = [[result objectForKey:@"code"] intValue];
+    
+    [self cookieForKey:@""];
 
     return [result objectForKey:@"data"];
 }
@@ -110,10 +123,9 @@ static HttpClient *singleInstance;
 - (NSString *)buildHttpFormData:(NSDictionary *)parameters
 {
     NSMutableArray *parts = [[NSMutableArray alloc] init];
-    NSString *key;
     NSString *value;
 
-    for(key in parameters)
+    for(NSString *key in parameters)
     {
         value = [parameters objectForKey:key];
         [parts addObject:[NSString stringWithFormat:@"%@=%@", key, value]];
@@ -128,6 +140,7 @@ static HttpClient *singleInstance;
 
     for(NSHTTPCookie *cookie in [cookieStore cookies])
     {
+        NSLog(@"%@: %@", cookie.name, cookie.value);
         if ([cookie.name isEqualToString:key]) return cookie.value;
     }
 

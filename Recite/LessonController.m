@@ -29,7 +29,7 @@
 {
     [super viewWillAppear:animated];
     
-    [LessonModel lessons];
+//    [LessonModel lessons];
 }
 
 @end

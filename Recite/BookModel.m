@@ -36,7 +36,7 @@ static void initializeInstances()
     if (!book)
     {
         HttpClient *client = [HttpClient singleInstance];
-        NSDictionary *dict = [client call:[NSString stringWithFormat:@"book/%i", bid]];
+        NSDictionary *dict = [client call:[NSString stringWithFormat:@"/book/%i", bid]];
 
         if (client.code)
         {
@@ -72,7 +72,7 @@ static void initializeInstances()
     BookModel *book;
     HttpClient *client = [HttpClient singleInstance];
     NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%i", page], @"page", nil];
-    NSArray *books = (NSArray *)[client call:@"book/list" post:nil query:query];
+    NSArray *books = (NSArray *)[client call:@"/book/list" post:nil query:query];
 
     if (client.code)
     {
@@ -95,7 +95,7 @@ static void initializeInstances()
 + (BOOL)purchase:(int)bid
 {
     HttpClient *client = [HttpClient singleInstance];
-    [client call:[NSString stringWithFormat:@"book/%i/purchase", bid]];
+    [client call:[NSString stringWithFormat:@"/book/%i/purchase", bid]];
 
     return !client.code;
 }
