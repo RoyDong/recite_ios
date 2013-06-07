@@ -35,7 +35,7 @@
     [_name setBackgroundColor:[UIColor brownColor]];
     [self.view addSubview:_name];
     
-    rect = CGRectMake(frame.origin.x + (screeWidth - width) / 2, 100, width, height);
+    rect = CGRectMake(frame.origin.x + (screeWidth - width) / 2, 120, width, height);
     _email = [[UILabel alloc] initWithFrame:rect];
     [_email setBackgroundColor:[UIColor brownColor]];
     [_email setTextAlignment:NSTextAlignmentCenter];

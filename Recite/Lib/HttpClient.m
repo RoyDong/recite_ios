@@ -7,7 +7,6 @@
 //
 
 #import "HttpClient.h"
-#import <Foundation/Foundation.h>
 
 @interface HttpClient()
 {
@@ -19,6 +18,12 @@
 static HttpClient *singleInstance;
 
 @implementation HttpClient
+
+@synthesize host = _host;
+
+@synthesize message = _message;
+
+@synthesize code = _code;
 
 + (HttpClient *)singleInstance
 {
@@ -43,10 +48,6 @@ static HttpClient *singleInstance;
     
     return self;
 }
-
-@synthesize host = _host;
-@synthesize message = _message;
-@synthesize code = _code;
 
 - (NSURL *)createUrlWithApi:(NSString *)api
 {
@@ -90,7 +91,7 @@ static HttpClient *singleInstance;
     }
 
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    
+
     if (error.code)
     {
         _message = @"Network is down";
@@ -98,9 +99,8 @@ static HttpClient *singleInstance;
         
         return nil;
     }
-    
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
 
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
     NSString *content = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     NSLog(@"%@", [NSString stringWithFormat:@"%@: %@", api, content]);
 
@@ -111,11 +111,9 @@ static HttpClient *singleInstance;
 
         return nil;
     }
-    
+
     _message = [result objectForKey:@"message"];
     _code = [[result objectForKey:@"code"] intValue];
-    
-    [self cookieForKey:@""];
 
     return [result objectForKey:@"data"];
 }
@@ -130,7 +128,7 @@ static HttpClient *singleInstance;
         value = [parameters objectForKey:key];
         [parts addObject:[NSString stringWithFormat:@"%@=%@", key, value]];
     }
-         
+
     return [parts componentsJoinedByString:@"&"];
 }
 
