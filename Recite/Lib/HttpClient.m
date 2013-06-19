@@ -41,11 +41,11 @@ static HttpClient *singleInstance;
     
     if(self)
     {
-        _host = @"http://recite.arch";
+        _host = @"http://low.arch";
         request = [[NSMutableURLRequest alloc] init];
         [request setValue:@"json" forHTTPHeaderField:@"Response-Format"];
     }
-    
+
     return self;
 }
 
@@ -95,7 +95,7 @@ static HttpClient *singleInstance;
     if (error.code)
     {
         _message = @"Network is down";
-        _code = error.code;
+        _code = 2;
         
         return nil;
     }
@@ -107,7 +107,7 @@ static HttpClient *singleInstance;
     if(error.code)
     {
         _message = @"Server error";
-        _code = error.code;
+        _code = 1;
 
         return nil;
     }
@@ -143,6 +143,14 @@ static HttpClient *singleInstance;
     }
 
     return nil;
+}
+
+- (NSString *)message
+{
+    if (!_message.length)
+        _message = [NSString stringWithFormat:@"Code %i", _code];
+
+    return _message;
 }
 
 @end
