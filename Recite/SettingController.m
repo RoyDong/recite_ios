@@ -8,12 +8,16 @@
 
 #import "SettingController.h"
 #import "UserModel.h"
+#import "TcpClient.h"
 
 @interface SettingController ()
 
 @end
 
 @implementation SettingController
+{
+    TcpClient *tcp;
+}
 
 @synthesize email = _email;
 
@@ -47,6 +51,16 @@
     [signout setBackgroundColor:[UIColor redColor]];
     [signout addTarget:self action:@selector(signout:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:signout];
+    
+    rect = CGRectMake(frame.origin.x + (screeWidth - width) / 2, 300, width, height);
+    UIButton *testTcp = [[UIButton alloc] initWithFrame:rect];
+    [testTcp setTitle:@"test tcp" forState:UIControlStateNormal];
+    [testTcp setBackgroundColor:[UIColor redColor]];
+    [testTcp addTarget:self action:@selector(testTcp:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:testTcp];
+    
+    tcp = [[TcpClient alloc] init];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -56,6 +70,8 @@
     UserModel *user = [UserModel currentUser];
     _name.text = user.name;
     _email.text = user.email;
+    
+    [tcp open:@"arch" port:3721];
 }
 
 - (IBAction)signout:(UIButton *)sender
@@ -63,6 +79,13 @@
     [UserModel signout];
     [UserModel currentUser];
     [self.parentViewController showAuthView];
+}
+
+- (IBAction)testTcp:(UIButton *)sender
+{
+    [tcp send:@"user.show" data:@"name=roy" callback:^{
+        NSLog(@"name=roy");
+    }];
 }
 
 @end

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>51686EEC-DC42-408A-AF7A-6605E58F326F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Recite</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2FD6E5FE-DBF3-4BE4-ABB0-8232CFB6F703</key>
+		<string>ssh://github.com/RoyDong/recite_ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Recite.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2FD6E5FE-DBF3-4BE4-ABB0-8232CFB6F703</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/RoyDong/recite_ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2FD6E5FE-DBF3-4BE4-ABB0-8232CFB6F703</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2FD6E5FE-DBF3-4BE4-ABB0-8232CFB6F703</string>
+			<key>IDESourceControlWCCName</key>
+			<string>recite_ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>

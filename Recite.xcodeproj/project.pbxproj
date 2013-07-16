@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B02EA756175C4BEE006085DB /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B02EA755175C4BED006085DB /* BookModel.m */; };
+		B04BA3BC178FF8120021674D /* TcpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B04BA3BB178FF8120021674D /* TcpClient.m */; };
 		B074164C17575A8C002C770D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B074164517575A8C002C770D /* BaseModel.m */; };
 		B074164E17575A8C002C770D /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B074164917575A8C002C770D /* HttpClient.m */; };
 		B074164F17575A8C002C770D /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B074164B17575A8C002C770D /* NavigationViewController.m */; };
@@ -52,6 +53,8 @@
 /* Begin PBXFileReference section */
 		B02EA754175C4BED006085DB /* BookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
 		B02EA755175C4BED006085DB /* BookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
+		B04BA3BA178FF8120021674D /* TcpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcpClient.h; sourceTree = "<group>"; };
+		B04BA3BB178FF8120021674D /* TcpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TcpClient.m; sourceTree = "<group>"; };
 		B074164417575A8C002C770D /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		B074164517575A8C002C770D /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		B074164817575A8C002C770D /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				B074164917575A8C002C770D /* HttpClient.m */,
 				B074164A17575A8C002C770D /* NavigationViewController.h */,
 				B074164B17575A8C002C770D /* NavigationViewController.m */,
+				B04BA3BA178FF8120021674D /* TcpClient.h */,
+				B04BA3BB178FF8120021674D /* TcpClient.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				B074166217585077002C770D /* AuthController.m in Sources */,
 				B07416661758ABC5002C770D /* LessonModel.m in Sources */,
 				B02EA756175C4BEE006085DB /* BookModel.m in Sources */,
+				B04BA3BC178FF8120021674D /* TcpClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
