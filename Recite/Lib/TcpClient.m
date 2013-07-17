@@ -38,6 +38,7 @@ const int Timeout = 30;
 @synthesize status = _status;
 
 
+
 - (TcpClient *)init:(NSString *)host port:(int)port
 {
     self = [super init];
@@ -89,7 +90,6 @@ const int Timeout = 30;
     socketParams.sin_family = AF_INET;
     bcopy(hostEnt->h_addr_list[0], &socketParams.sin_addr, hostEnt->h_length);
     socketParams.sin_port = htons(_port);
-    
     int ret = connect(sockeId, (struct sockaddr *)&socketParams, sizeof(socketParams));
     
     if (ret == -1)
@@ -100,9 +100,7 @@ const int Timeout = 30;
     }
 
     _status = 1;
-    [[[NSThread alloc] initWithTarget:self
-                             selector:@selector(listen)
-                               object:Nil] start];
+    [[[NSThread alloc] initWithTarget:self selector:@selector(listen) object:Nil] start];
 }
 
 - (void)listen
@@ -126,7 +124,7 @@ const int Timeout = 30;
                 NSData *reply = [[NSData alloc] initWithBytes:buffer length:length];
                 void (^callback)(NSData *reply) = [callbacks objectAtIndex:mid];
                 int callTime = calltimes[mid];
-                
+
                 if (callTime > 0 && callback)
                 {
                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{callback(reply);}];
@@ -153,7 +151,7 @@ const int Timeout = 30;
     if (_status == 0) [self open];
     int mid;
     int t = (int)time(NULL);
-    
+
     for (mid = 0; mid < MaxCall; mid++)
     {
         if (calltimes[mid] == 0)
@@ -163,7 +161,7 @@ const int Timeout = 30;
             break;
         }
     }
-    
+
     if (mid >= MaxCall)
     {
         _message = @"too many calls";
@@ -187,6 +185,5 @@ const int Timeout = 30;
 
     return send(sockeId, buffer, length, AF_INET) == length;
 }
-
 
 @end
