@@ -80,10 +80,12 @@
 
 - (IBAction)testTcp:(UIButton *)sender
 {
-    [tcp sendTitle:@"user.show" content:@"name=roy" callback:^(NSData *reply){
+    BOOL b = [tcp sendTitle:@"user.show" content:@"aaa" callback:^(NSData *reply){
         NSString *s = [[NSString alloc] initWithData:reply encoding:NSUTF8StringEncoding];
         NSLog(@"%@ %i", s, 2);
     }];
+    
+    NSLog(@"%i", b);
 }
 
 @end

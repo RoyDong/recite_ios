@@ -148,7 +148,9 @@ const int Timeout = 30;
 
 - (BOOL)sendTitle:(NSString *)title content:(NSString *)content callback:(void (^)(NSData *reply))callback
 {
+    if (!title || !content) return false;
     if (_status == 0) [self open];
+
     int mid;
     int t = (int)time(NULL);
 
