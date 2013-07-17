@@ -156,7 +156,7 @@ const int Timeout = 30;
 
     for (mid = 0; mid < MaxCall; mid++)
     {
-        if (calltimes[mid] == 0)
+        if (calltimes[mid] == 0 || t - calltimes[mid] > 30)
         {
             [callbacks setObject:callback atIndexedSubscript:mid];
             calltimes[mid] = t;
@@ -186,6 +186,21 @@ const int Timeout = 30;
     bcopy(contentBuf, buffer + 13 + titleLen, contentLen);
 
     return send(sockeId, buffer, length, AF_INET) == length;
+}
+
+
+- (NSString *)buildContent:(NSDictionary *)parameters
+{
+    NSMutableArray *parts = [[NSMutableArray alloc] init];
+    NSString *value;
+    
+    for(NSString *key in parameters)
+    {
+        value = [parameters objectForKey:key];
+        [parts addObject:[NSString stringWithFormat:@"%@=%@", key, value]];
+    }
+    
+    return [parts componentsJoinedByString:@"&"];
 }
 
 @end

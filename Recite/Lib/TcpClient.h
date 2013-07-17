@@ -24,6 +24,8 @@
 
 - (void)open;
 
+- (NSString *)buildContent:(NSDictionary *)parameters;
+
 - (BOOL)sendTitle:(NSString *)title content:(NSString *)content callback:(void (^)(NSData *reply))callback;
 
 @end
