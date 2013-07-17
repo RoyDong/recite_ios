@@ -39,7 +39,7 @@ const int Timeout = 30;
 
 
 
-- (TcpClient *)init:(NSString *)host port:(int)port
+- (TcpClient *)initWithHost:(NSString *)host port:(int)port
 {
     self = [super init];
     
@@ -146,7 +146,7 @@ const int Timeout = 30;
     }
 }
 
-- (BOOL)send:(NSString *)title data:(NSString *)content callback:(void (^)(NSData *reply))callback
+- (BOOL)sendTitle:(NSString *)title content:(NSString *)content callback:(void (^)(NSData *reply))callback
 {
     if (_status == 0) [self open];
     int mid;

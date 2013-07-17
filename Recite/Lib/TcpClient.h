@@ -20,10 +20,10 @@
 
 @property (nonatomic, readonly) int port;
 
-- (TcpClient *)init:(NSString *)host port:(int)port;
+- (TcpClient *)initWithHost:(NSString *)host port:(int)port;
 
 - (void)open;
 
-- (BOOL)send:(NSString *)command data:(NSString *)data callback:(void (^)(NSData *reply))callback;
+- (BOOL)sendTitle:(NSString *)title content:(NSString *)content callback:(void (^)(NSData *reply))callback;
 
 @end

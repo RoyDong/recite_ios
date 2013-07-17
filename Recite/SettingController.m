@@ -59,7 +59,7 @@
     [testTcp addTarget:self action:@selector(testTcp:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:testTcp];
     
-    tcp = [[TcpClient alloc] init:@"arch" port:3721];
+    tcp = [[TcpClient alloc] initWithHost:@"arch" port:3721];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -80,7 +80,7 @@
 
 - (IBAction)testTcp:(UIButton *)sender
 {
-    [tcp send:@"user.show" data:@"name=roy" callback:^(NSData *reply){
+    [tcp sendTitle:@"user.show" content:@"name=roy" callback:^(NSData *reply){
         NSString *s = [[NSString alloc] initWithData:reply encoding:NSUTF8StringEncoding];
         NSLog(@"%@ %i", s, 2);
     }];
