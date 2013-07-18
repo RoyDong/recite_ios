@@ -59,7 +59,7 @@
     [testTcp addTarget:self action:@selector(testTcp:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:testTcp];
     
-    tcp = [[TcpClient alloc] initWithHost:@"arch" port:3721];
+    tcp = [TcpClient singleInstance];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -81,14 +81,14 @@
 - (IBAction)testTcp:(UIButton *)sender
 {
     NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys:
-                             @"1", @"id", nil];
-    
-    BOOL b = [tcp sendTitle:@"user.show" content:[tcp buildContent:content] callback:^(NSData *reply){
+                             @"d@zuo.com", @"email",
+                             @"111", @"passwd", nil];
+
+    [tcp callWithTitle:@"user.signin" content:[tcp buildContent:content] callback:^(NSData *reply){
         NSString *s = [[NSString alloc] initWithData:reply encoding:NSUTF8StringEncoding];
-        NSLog(@"%@ %i", s, 2);
+
     }];
 
-    NSLog(@"%i", b);
 }
 
 @end

@@ -16,9 +16,13 @@
 
 @property (nonatomic, readonly, strong) NSString *message;
 
-@property (nonatomic, readonly) int status;
+@property (nonatomic) int status;
 
 @property (nonatomic, readonly) int port;
+
+@property (nonatomic, strong) void (^noticeHandler)(NSData *notice);
+
++ (TcpClient *)singleInstance;
 
 - (TcpClient *)initWithHost:(NSString *)host port:(int)port;
 
@@ -26,6 +30,6 @@
 
 - (NSString *)buildContent:(NSDictionary *)parameters;
 
-- (BOOL)sendTitle:(NSString *)title content:(NSString *)content callback:(void (^)(NSData *reply))callback;
+- (BOOL)callWithTitle:(NSString *)title content:(NSString *)content callback:(void (^)(NSData *reply))callback;
 
 @end

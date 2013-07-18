@@ -15,17 +15,18 @@
 
 const int MaxCall = 10;
 
-const int Timeout = 30;
+const int MaxSec = 30;
 
+const int NoticeMid = 63;
 
 @implementation TcpClient
 {
     int sockeId;
     struct sockaddr_in socketParams;
     NSMutableArray *callbacks;
-    int calltimes[MaxCall];
+    int calltimes[MaxCall + 1];
+    NSThread *thread;
 }
-
 
 @synthesize host = _host;
 
@@ -37,7 +38,19 @@ const int Timeout = 30;
 
 @synthesize status = _status;
 
+@synthesize noticeHandler = _noticeHandler;
 
+static TcpClient *singleInstance;
+
++ (TcpClient *)singleInstance
+{
+    if(!singleInstance)
+    {
+        singleInstance = [[TcpClient alloc] initWithHost:@"arch" port:3721];
+    }
+    
+    return singleInstance;
+}
 
 - (TcpClient *)initWithHost:(NSString *)host port:(int)port
 {
@@ -52,29 +65,21 @@ const int Timeout = 30;
     return self;
 }
 
-- (void)close
+- (void)open
 {
-    close(sockeId);
     callbacks = [NSMutableArray arrayWithCapacity:MaxCall];
-    
+
     for (int i = 0; i < MaxCall; i++)
     {
         calltimes[i] = 0;
     }
-    
-    _status = 0;
-}
-
-- (void)open
-{
-    [self close];
 
     sockeId = socket(AF_INET, SOCK_STREAM, 0);
 
     if (sockeId == -1)
     {
         _message = @"failed to create socket";
-        [self close];
+        close(sockeId);
         return;
     }
 
@@ -83,7 +88,7 @@ const int Timeout = 30;
     if (hostEnt == NULL)
     {
         _message = @"could not get host info";
-        [self close];
+        close(sockeId);
         return;
     }
 
@@ -95,42 +100,56 @@ const int Timeout = 30;
     if (ret == -1)
     {
         _message = [NSString stringWithFormat:@"connect to %@:%i failed", _host, _port];
-        [self close];
+        close(sockeId);
         return;
     }
 
     _status = 1;
-    [[[NSThread alloc] initWithTarget:self selector:@selector(listen) object:Nil] start];
+    thread = [[NSThread alloc] initWithTarget:self selector:@selector(listen) object:Nil];
+    [thread setName:@"t"];
+    [thread start];
+    NSLog(@"new thread");
 }
 
 - (void)listen
 {
-    while (1)
+    while (_status)
     {
         char head[9];
         int result = recv(sockeId, head, 9, 0);
 
         if (result == 9)
         {
-            int t, length;
+            int sentTime, length;
             int mid = head[0];
-            bcopy(head + 1, (void *)&t, 4);
+            bcopy(head + 1, (void *)&sentTime, 4);
             bcopy(head + 5, (void *)&length, 4);
             char buffer[length];
             result = recv(sockeId, buffer, length, 0);
 
             if (result == length)
             {
-                NSData *reply = [[NSData alloc] initWithBytes:buffer length:length];
-                void (^callback)(NSData *reply) = [callbacks objectAtIndex:mid];
-                int callTime = calltimes[mid];
+                NSData *data = [[NSData alloc] initWithBytes:buffer length:length];
 
-                if (callTime > 0 && callback)
+                NSString *s = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                NSLog(@"%i %i %@", mid, sentTime, s);
+
+                if (mid == NoticeMid)
                 {
-                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{callback(reply);}];
-                    
-                    NSString *s = [[NSString alloc] initWithData:reply encoding:NSUTF8StringEncoding];
-                    NSLog(@"%i %i %@", mid, t, s);
+                    if (_noticeHandler)
+                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{_noticeHandler(data);}];
+
+                    continue;
+                }
+
+                if (mid >= 0 && mid < MaxCall)
+                {
+                    int callTime = calltimes[mid];
+                    int t = (int)time(NULL);
+                    void (^callback)(NSData *reply) = [callbacks objectAtIndex:mid];
+                
+                    if (callTime > 0 && t - callTime <= MaxSec && callback)
+                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{callback(data);}];
 
                     calltimes[mid] = 0;
                 }
@@ -139,14 +158,22 @@ const int Timeout = 30;
             }
         }
 
-        _message = @"server closed";
-        NSLog(@"server closed");
-        [self close];
-        break;
+        _status = 0;
     }
+
+    _message = @"server closed";
+    NSLog(@"server closed");
+    close(sockeId);
+    [NSThread exit];
 }
 
-- (BOOL)sendTitle:(NSString *)title content:(NSString *)content callback:(void (^)(NSData *reply))callback
+- (void)setStatus:(int)status
+{
+    _status = status;
+    if (_status == 0) [thread cancel];
+}
+
+- (BOOL)callWithTitle:(NSString *)title content:(NSString *)content callback:(void (^)(NSData *reply))callback
 {
     if (!title || !content) return false;
     if (_status == 0) [self open];
@@ -156,7 +183,7 @@ const int Timeout = 30;
 
     for (mid = 0; mid < MaxCall; mid++)
     {
-        if (calltimes[mid] == 0 || t - calltimes[mid] > 30)
+        if (calltimes[mid] == 0 || t - calltimes[mid] > MaxSec)
         {
             [callbacks setObject:callback atIndexedSubscript:mid];
             calltimes[mid] = t;
@@ -166,8 +193,8 @@ const int Timeout = 30;
 
     if (mid >= MaxCall)
     {
-        _message = @"too many calls";
-        NSLog(@"too many");
+        _message = @"network is busy";
+        NSLog(@"network is busy");
         return NO;
     }
 
@@ -187,7 +214,6 @@ const int Timeout = 30;
 
     return send(sockeId, buffer, length, AF_INET) == length;
 }
-
 
 - (NSString *)buildContent:(NSDictionary *)parameters
 {
